@@ -1,0 +1,18 @@
+<div class="flex w-full">
+  <button class="bg-blue-500 p-2 border rounded-md">Nova Receita</button>
+</div>
+
+<div class="flex" *ngFor="let recipe of recipes">
+    <div class="grid grid-cols-12">
+      <div>
+        <h4>{{recipe.name}}</h4>
+        <p>{{recipe.description}}</p>
+      </div>
+
+      <span>
+        <img class="" src="{{recipe.imagePath}}" alt="{{recipe.name}}">
+      </span>
+    </div>
+</div>
+
+<app-recipe-item></app-recipe-item>

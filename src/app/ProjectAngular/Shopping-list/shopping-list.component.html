@@ -1,0 +1,10 @@
+<div class="grid grid-cols-12">
+  <div class="col-span-10">
+    <app-shopping-edit></app-shopping-edit>
+    <hr>
+    <ul *ngFor="let ingredient of ingredients">
+      <a href="#">{{ingredient.name}} {{ingredient.amount}}</a>
+      
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<h1>Escolha um novo Server ou TelaAzul</h1>
+<div class="grid grid-cols-12">
+  <div class="col-span-2 ">
+    <div class="flex flex-col">
+      <label for="">Nome server</label>
+      <input type="text" [(ngModel)]="newServerName">
+    </div>
+  </div>
+
+  <div class="grid col-span-3">
+    <div class="flex flex-col">
+      <label for="">Content</label>
+      <input type="text" [(ngModel)]="newServerContent">
+    </div>
+  </div>
+</div>
+
+<div class="space-x-2">
+  <button (click)="onAddServer()" class="bg-green-400 p-2 rounded-lg">Adicionar Server</button>
+  <button (click)="onAddBluePrint()" class="bg-blue-400 p-2 rounded-lg">Adicionar TelaAzul</button>
+</div>
+
+<div class="space-x-2 py-2">
+  <button (click)="test()" class="bg-pink-400 p-2 rounded-lg">Adicionar Server</button>
+  <input type="text" #referencia>
+  <h1 #Getallh1>teste 1</h1>
+  <h1 #Getallh1>Teste 22</h1>
+  <h1 #Getallh1>TESTE 444</h1>
+</div>

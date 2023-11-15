@@ -1,0 +1,46 @@
+<div class="container mx-auto px-4 pt-5">
+  <div class=" grid grid-cols-6 ">
+
+    <div class="bg-slate-400 mx-1">
+      <input [(ngModel)]="word" class="w-20 border rounded-lg border-red-400" placeholder="Digite" type="text">
+      <p class="text-xs">{{word}}</p>
+      <p>{{text}}</p>
+      <p [innerHTML]="text" ></p>
+
+    </div>
+
+    <div class="bg-slate-400 mx-1">
+      <h3 >Olá Mundo {{numero}} </h3>
+    </div>
+
+    <div class="bg-slate-400 mx-1">
+      <button (click)="mudar()" class="ml-1 px-1 text-xs border rounded border-yellow-700 bg-yellow-400">mudar</button>
+    </div>
+
+    <div class="bg-slate-400 mx-1">
+      <button [disabled]="!espera" class="ml-1 px-1 text-xs border rounded border-yellow-700 bg-yellow-400">espera</button>
+    </div>
+
+    <div class="bg-slate-400 mx-1 grid">
+      <input class="w-20 bg-slate-400" type="text" (input)="servername($event)">
+      <label for="">{{server}}</label>
+    </div>
+
+    <div class="bg-slate-900 mx-1">
+      <button (click)="aparecer()">Não clica</button>
+      <p *ngIf="idiota">SEU IDIOTA</p>
+    </div>
+  </div>  
+
+
+
+  <div class="grid grid-cols-6">
+    <div [ngStyle]="{backgroundColor: getColor()}" class=" mx-1 mt-5">
+      <p>Essa div terá uma cor diferente a cada refresh da página</p>
+    </div>
+
+    <div [ngClass]="colorDivAoLado()" class=" mx-1 mt-5" >
+      <p>Se a div no lado for verde aqui vai ficar azul,caso ao contraria vai ficar roxo</p>
+    </div>
+  </div>
+</div>
