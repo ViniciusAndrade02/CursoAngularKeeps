@@ -19,6 +19,10 @@ import { TestComponent } from './OtherProject/test/test.component';
 import { BasicHighLightDirective } from './OtherProject/basic-highlight/basic-hightlight.directive';
 import { BetterHighLightDirective } from './OtherProject/better-hignLight/better-highLight.directive';
 import { DirectiveConstructor } from './OtherProject/bi-diretris-estrutural/diretris-estrutural';
+import { RouterComponent } from './router/router.component';
+import { UsuarioComponent } from './router/usuario/usuario.component';
+import { ProfissaoComponent } from './router/profissao/profissao.component';
+import { AnimalComponent } from './router/animal/animal.component';
 
 
 @NgModule({
@@ -38,7 +42,7 @@ import { DirectiveConstructor } from './OtherProject/bi-diretris-estrutural/dire
     TestComponent,
     BasicHighLightDirective, //é um directive,
     BetterHighLightDirective, //é uma directive
-    DirectiveConstructor
+    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent,
   ],
   imports: [
     BrowserModule,
