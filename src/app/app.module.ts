@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { Routes,RouterModule } from '@angular/router';
 
 import { ServerComponent } from './Server/server/server.component';
 import { AppComponent } from './app.component';
@@ -25,6 +25,13 @@ import { ProfissaoComponent } from './router/profissao/profissao.component';
 import { AnimalComponent } from './router/animal/animal.component';
 
 
+const appRoutes: Routes = [
+  { path: '', component: RouterComponent }, //inicial
+  { path: 'usuario', component: UsuarioComponent },
+  { path: 'animal', component: AnimalComponent },
+  { path: 'profissao', component: ProfissaoComponent },
+];
+
 @NgModule({
   declarations: [
     ServerComponent,
@@ -46,7 +53,8 @@ import { AnimalComponent } from './router/animal/animal.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

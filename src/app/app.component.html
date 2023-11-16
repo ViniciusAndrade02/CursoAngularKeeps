@@ -34,4 +34,14 @@
   </div>
 </div>
 
-<!------------------------------------ -->
+<!--------- Tentando o Router   --------------------------- -->
+<div class="container mx-auto px-4 pt-5 h-screen">
+  <div class="h-16 bg-gray-200 flex items-center space-x-5 justify-center">
+
+    <button routerLink="usuario" class="p-2 border-2 rounded-md bg-slate-500 text-gray-200 hover:bg-slate-700 duration-300">USUARIO</button>
+    <button routerLink="animal" class="p-2 border-2 rounded-md bg-slate-500 text-gray-200 hover:bg-slate-700 duration-300">ANIMAIS</button>
+    <button [routerLink]="['./profissao']" class="p-2 border-2 rounded-md bg-slate-500 text-gray-200 hover:bg-slate-700 duration-300">PROFISSÃO</button>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
