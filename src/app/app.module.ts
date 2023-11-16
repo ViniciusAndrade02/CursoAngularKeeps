@@ -49,7 +49,7 @@ const appRoutes: Routes = [
     TestComponent,
     BasicHighLightDirective, //é um directive,
     BetterHighLightDirective, //é uma directive
-    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent,
+    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, 
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,19 @@
+  <div class="h-16 bg-gray-200 flex items-center space-x-5 justify-center">
+    <button [disabled]="btn" routerLinkActive="bg-slate-700" routerLink="usuario" class="p-2 border-2 rounded-md bg-slate-500 text-gray-200 hover:bg-slate-700 duration-300">USUARIO</button>
+    <button [disabled]="btn" routerLinkActive="bg-slate-700" routerLink="animal" class="p-2 border-2 rounded-md bg-slate-500 text-gray-200 hover:bg-slate-700 duration-300">ANIMAIS</button>
+    <button [disabled]="btn" routerLinkActive="bg-slate-700" [routerLink]="['./profissao']" class="p-2 border-2 rounded-md bg-slate-500 text-gray-200 hover:bg-slate-700 duration-300">PROFISSÃO</button>
+  </div>
+
+  <div *ngIf="hideName" class="flex flex-col items-center justify-end py-10">
+    <h1 class="text-2xl ">DIGITE O SEU NOME:</h1>
+    <input [(ngModel)]="inputName" class="border-2 border-gray-400 rounded-lg pl-2" type="text">
+    <button (click)="avancar()" class="p-2 text-sm bg-slate-400 rounded-lg my-2">AVANÇAR</button>
+  </div>
+
+  <div class="flex flex-col items-center justify-end py-10">
+    <router-outlet *ngIf="showRouter"></router-outlet>
+  </div>
 
 
-<div class="flex flex-col items-center justify-end py-10">
-  <h1 class="text-2xl ">DIGITE O SEU NOME:</h1>
-  <input class="border-2 border-gray-400 rounded-lg pl-2" type="text">
-  <button class="p-2 text-sm bg-slate-400 rounded-lg my-2">CONFIRMAR</button>
-</div>
 
 

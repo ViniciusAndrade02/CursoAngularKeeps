@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component,Input } from '@angular/core';
+import { RouterService } from './router/router.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,8 +12,13 @@ export class AppComponent {
   serverName:string = 'TestServer'
   serverElements!:string[]
 
+  constructor(private recebidoBtn:RouterService){
+  }
+
+
   GerarServer(){
     this.servers.push(this.serverName)
+
   }
 
   //Projeto Seção 5
