@@ -1,26 +1,40 @@
-import { Component,Input,Output,EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  Injectable,
+  OnInit,
+} from '@angular/core';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  styleUrls: ['./test.component.scss'],
+  
 })
-export class TestComponent {
-  getText!:string;
-  corpadrao:string = 'pink'
+export class TestComponent implements OnInit {
+  getText!: string;
+  corpadrao: string = 'pink';
   @Output() enviar = new EventEmitter<string>();
 
-  mandar(getText:string){
-
-    this.enviar.emit(this.getText)
+  mandar(getText: string) {
+    this.enviar.emit(this.getText);
   }
 
-  arrays:(string | number)[][] = [['leite','quente',1,3,5]]
+  constructor(
+    private mandarService: LoggingService,
+  ) {}
 
-  numero:number = 5
-  duplicar(){
-    this.numero = this.numero+2
-    const newArray = ['leite','quente',1,3,this.numero]
-    this.arrays.push(newArray);
+  ngOnInit(): void {}
+
+  numero: number = 5;
+  arrays: (string | number)[] = [this.numero];
+
+  duplicar() {
+    this.numero = this.numero + 2;
+    this.arrays.push(this.numero);
+    this.mandarService.statusChanges(this.numero);
   }
 }
