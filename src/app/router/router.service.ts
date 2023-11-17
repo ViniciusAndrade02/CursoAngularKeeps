@@ -5,10 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class RouterService {
   inputNome!: string;
+
+  //gpegar o que foi digitado
   tipoDog!: string;
   nameAnimal!:string
   inputProfissao!: string;
 
+
+  //array PAI
   usersDescription:any = [
   ];
 
@@ -24,6 +28,8 @@ export class RouterService {
 
   receberInputProfissao(nomeProfissao: any) {
     this.inputProfissao = nomeProfissao;
+
+    //envir tudo para a array 
     this.usersDescription.push({
       nameAnimal: this.nameAnimal,
       nameJob: this.inputProfissao,
