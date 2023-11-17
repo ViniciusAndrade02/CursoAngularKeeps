@@ -11,6 +11,7 @@
     <h1 class="text-2xl ">DIGITE O SEU NOME:</h1>
 
     <input [(ngModel)]="inputName" class="border-2 border-gray-400 rounded-lg pl-2" type="text">
+    <span *ngIf="erroDigitar" class="text-red-500 font-semibold">Digite seu nome para continuar</span>
     
     <button (click)="avancar()" class="p-2 text-sm bg-slate-400 rounded-lg my-2">AVANÇAR</button>
   </div>

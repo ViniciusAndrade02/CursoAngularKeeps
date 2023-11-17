@@ -10,6 +10,10 @@
     </div>
 
     <div>
+      <span *ngIf="errorProfissao" class="text-red-500 font-semibold">Digite o nome da sua PROFISSÃO para continuar...</span>
+    </div>
+
+    <div>
       <button (click)="enviarProfissao()" class="my-2 p-2 bg-slate-500 rounded-xl">Concluir</button>
     </div>
   </div>

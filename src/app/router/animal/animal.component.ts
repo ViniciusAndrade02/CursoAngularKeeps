@@ -7,26 +7,41 @@ import {Router} from '@angular/router';
   styleUrls: ['./animal.component.scss'],
 })
 export class AnimalComponent {
-  inputNameDog!: string;
+  inputNameDog: string = ""
   tipoDog!:string
+  errorAnimal:boolean = false
 
   constructor(private routeService: RouterService,private router:Router) {}
 
   tipoCao(){
-    this.tipoDog='Cachorro'
-    this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
-    this.router.navigate(['./profissao'])
+
+    if(this.inputNameDog == ""){
+      this.errorAnimal=true
+    }else{
+      this.tipoDog='Cachorro'
+      this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
+      this.router.navigate(['profissao'])
+    }
+
   }
 
   tipoGato(){
-    this.tipoDog='Gato'
-    this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
-    this.router.navigate(['./profissao'])
+    if(this.inputNameDog == ""){
+      this.errorAnimal=true
+    }else{
+      this.tipoDog='Gato'
+      this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
+      this.router.navigate(['profissao'])
+    }
   }
   
   tipoCavalo(){
-    this.tipoDog='Cavalo'
-    this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
-    this.router.navigate(['./profissao'])
+    if(this.inputNameDog == ""){
+      this.errorAnimal=true
+    }else{
+      this.tipoDog='Cavalo'
+      this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
+      this.router.navigate(['profissao'])
+    }
   }
 }

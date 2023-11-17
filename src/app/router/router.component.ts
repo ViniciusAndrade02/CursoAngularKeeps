@@ -11,15 +11,21 @@ export class RouterComponent {
   showRouter: boolean = false;
   hideName: boolean = true;
   inputName!: string;
+  erroDigitar:boolean = false
 
   constructor(private router: Router, private routerService: RouterService) {}
 
   avancar() {
-    this.router.navigate(['usuario']);
-    this.btn = false;
-    this.showRouter = true;
-    this.hideName = false;
-
-    this.routerService.receberInputName(this.inputName);
+    if(this.inputName == null){
+       this.erroDigitar = true
+    }else{
+      this.router.navigate(['usuario']);
+      this.btn = false;
+      this.showRouter = true;
+      this.hideName = false;
+  
+      this.routerService.receberInputName(this.inputName);
+    }
   }
+
 }

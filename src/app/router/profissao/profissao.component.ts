@@ -9,13 +9,19 @@ import {Router} from '@angular/router';
 })
 export class ProfissaoComponent {
 
-  inputProfissao!:string
+  inputProfissao:string = ""
+  errorProfissao:boolean = false
 
   constructor(private routerComponente:RouterService,private router:Router){
   }
 
   enviarProfissao(){
-    this.routerComponente.receberInputProfissao(this.inputProfissao)
-    this.router.navigate(['./usuario'])
+
+    if(this.inputProfissao == ""){
+      this.errorProfissao = true
+    }else{
+      this.routerComponente.receberInputProfissao(this.inputProfissao)
+      this.router.navigate(['./usuario'])
+    }
   }
 }

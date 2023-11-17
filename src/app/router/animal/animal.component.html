@@ -10,10 +10,14 @@
     </div>
 
     <div class="flex items-baseline space-x-3">
-      <h1 class="text-2xl pt-2">Qual seu animal?</h1>
+      <h1 class="text-2xl pt-1">Qual seu animal?</h1>
       <button (click)="tipoCao()" class="p-2 text-sm bg-green-500 text-white rounded-lg">CÃO</button>
       <button (click)="tipoGato()" class="p-2 text-sm bg-yellow-500 text-white rounded-lg">GATO</button>
       <button (click)="tipoCavalo()" class="p-2 text-sm bg-blue-500 text-white rounded-lg">CAVALO</button>
+    </div>
+
+    <div class="mt-3">
+      <span *ngIf="errorAnimal" class="text-red-500 font-semibold">Digite o nome do seu ANIMAL para continuar...</span>
     </div>
   </div>
 </div>
