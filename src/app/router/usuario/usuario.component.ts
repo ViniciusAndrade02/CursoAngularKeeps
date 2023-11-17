@@ -11,20 +11,26 @@ export class UsuarioComponent {
   nameDog!: string;
   tipoDog!: string;
   nameProfissao!: string;
-  users: string[] = ['a'];
+  users: any[] = [[
+    'nameAnimal',
+    'tipoAnimal',
+    'nameJob',
+  ]];
 
   constructor(private routerService: RouterService, private router: Router) {
     this.nameInput = this.routerService.inputNome;
     this.nameDog = this.routerService.inputDogaRRAY[0];
     this.tipoDog = this.routerService.tipoDog;
     this.nameProfissao = this.routerService.inputProfissao;
+    this.users = this.routerService.usersDescription
+    //pegar a array do router.service
+
   }
 
   //Outra maneira:
 
   addUsers() {
-    this.users.push('a');
-
+    console.log(this.users)
     //this.router.navigate(['animal'])
   }
 }

@@ -5,7 +5,7 @@
 
   <div class="col-span-8">
     <h1 class="text-3xl">Seu nome:{{nameInput}}</h1>
-      <div class="py-2" *ngFor="let user of users">
+      <div class="py-2" *ngFor="let user of users,let i = index">
         <p>Nome Animal: {{nameDog}}, tipo: {{tipoDog}}</p>
         <p>Sua profissão: {{nameProfissao}}</p>
       </div>

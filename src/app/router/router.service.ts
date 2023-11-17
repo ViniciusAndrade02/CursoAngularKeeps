@@ -34,6 +34,5 @@ export class RouterService {
       nameJob: this.inputProfissao,
       tipoAnimal:this.tipoDog,
     });
-    console.log(this.usersDescription);
   }
 }
