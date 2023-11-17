@@ -4,10 +4,11 @@
   </div>
 
   <div class="col-span-8">
-    <h1 class="text-3xl">Seu nome:{{nameInput}}</h1>
-      <div class="py-2" *ngFor="let user of users,let i = index">
-        <p>Nome Animal: {{nameDog}}, tipo: {{tipoDog}}</p>
-        <p>Sua profissão: {{nameProfissao}}</p>
+    <h1 class="text-3xl">Seja bem-vindo <span class="text-3xl text-blue-600 font-bold capitalize">{{nameInput}}</span></h1>
+    <p>clique em add para adicionar um novo registro</p>
+      <div class="py-2 mt-2 border-red-500 border-2" *ngFor="let user of users,let i = index">
+        <p>Nome Animal: {{user.nameAnimal}}, tipo: {{user.tipoAnimal}}</p>
+        <p>Sua profissão: {{user.nameJob}}</p>
       </div>
     <button (click)="addUsers()" class="mt-2 p-2 w-20 bg-blue-400 rounded-lg text-xs ">ADD</button>
   </div>

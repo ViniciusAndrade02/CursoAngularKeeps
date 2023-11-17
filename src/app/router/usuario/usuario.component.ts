@@ -8,9 +8,6 @@ import { Router } from '@angular/router';
 })
 export class UsuarioComponent {
   nameInput!: string;
-  nameDog!: string;
-  tipoDog!: string;
-  nameProfissao!: string;
   users: any[] = [[
     'nameAnimal',
     'tipoAnimal',
@@ -18,16 +15,13 @@ export class UsuarioComponent {
   ]];
 
   constructor(private routerService: RouterService, private router: Router) {
-    this.nameInput = this.routerService.inputNome;
-    this.nameDog = this.routerService.nameAnimal
-    this.tipoDog = this.routerService.tipoDog;
-    this.nameProfissao = this.routerService.inputProfissao;
-    this.users = this.routerService.usersDescription
+
+    this.nameInput = this.routerService.inputNome
     //pegar a array do router.service
+    this.users = this.routerService.usersDescription
 
   }
 
-  //Outra maneira:
 
   addUsers() {
     console.log(this.users)
