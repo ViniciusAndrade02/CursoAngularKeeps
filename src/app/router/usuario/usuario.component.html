@@ -5,7 +5,11 @@
 
   <div class="col-span-8">
     <h1 class="text-3xl">Seu nome:{{nameInput}}</h1>
-    <p>Nome Animal: {{nameDog}}, tipo: {{tipoDog}}</p>
-    <p>Sua profissão: {{nameProfissao}}</p>
+      <div class="py-2" *ngFor="let user of users">
+        <p>Nome Animal: {{nameDog}}, tipo: {{tipoDog}}</p>
+        <p>Sua profissão: {{nameProfissao}}</p>
+      </div>
+    <button (click)="addUsers()" class="mt-2 p-2 w-20 bg-blue-400 rounded-lg text-xs ">ADD</button>
   </div>
+
 </div>

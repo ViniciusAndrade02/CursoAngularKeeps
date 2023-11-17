@@ -5,20 +5,21 @@ import { Injectable } from '@angular/core';
 })
 export class RouterService {
   inputNome!: string;
-  inputDog!: string;
+  inputDog: any[] = []
   tipoDog!: string;
   inputProfissao!: string;
+
+  receberInputDog(nomeDog: any,tipoDog:any) {
+    this.inputDog.push(nomeDog);
+    this.tipoDog= tipoDog
+    console.log(this.inputDog,this.tipoDog)
+  }
 
   receberInputName(nomeInput: any) {
     this.inputNome = nomeInput;
     console.log(this.inputNome);
   }
 
-  receberInputDog(nomeDog: any,tipoDog:any) {
-    this.inputDog = nomeDog;
-    this.tipoDog= tipoDog
-    console.log(this.inputDog,this.tipoDog)
-  }
 
   receberInputProfissao(nomeProfissao:any){
     this.inputProfissao=nomeProfissao
