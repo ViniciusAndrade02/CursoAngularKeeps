@@ -7,26 +7,26 @@ import {Router} from '@angular/router';
   styleUrls: ['./animal.component.scss'],
 })
 export class AnimalComponent {
-  inputDog!: string;
+  inputNameDog!: string;
   tipoDog!:string
 
   constructor(private routeService: RouterService,private router:Router) {}
 
   tipoCao(){
     this.tipoDog='Cachorro'
-    this.routeService.receberInputDog(this.inputDog , this.tipoDog)
+    this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
     this.router.navigate(['./profissao'])
   }
 
   tipoGato(){
     this.tipoDog='Gato'
-    this.routeService.receberInputDog(this.inputDog , this.tipoDog)
+    this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
     this.router.navigate(['./profissao'])
   }
   
   tipoCavalo(){
     this.tipoDog='Cavalo'
-    this.routeService.receberInputDog(this.inputDog , this.tipoDog)
+    this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
     this.router.navigate(['./profissao'])
   }
 }

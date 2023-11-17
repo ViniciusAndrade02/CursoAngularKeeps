@@ -19,7 +19,7 @@ export class UsuarioComponent {
 
   constructor(private routerService: RouterService, private router: Router) {
     this.nameInput = this.routerService.inputNome;
-    this.nameDog = this.routerService.inputDogaRRAY[0];
+    this.nameDog = this.routerService.nameAnimal
     this.tipoDog = this.routerService.tipoDog;
     this.nameProfissao = this.routerService.inputProfissao;
     this.users = this.routerService.usersDescription
@@ -31,6 +31,6 @@ export class UsuarioComponent {
 
   addUsers() {
     console.log(this.users)
-    //this.router.navigate(['animal'])
+    this.router.navigate(['animal'])
   }
 }
