@@ -6,7 +6,11 @@
   <div class="col-span-8">
     <div class="flex">
       <h1 class="text-3xl">Digite sua profissão:</h1>
-      <input type="text">
+      <input [(ngModel)]="inputProfissao" type="text">
+    </div>
+
+    <div>
+      <button (click)="enviarProfissao()" class="my-2 p-2 bg-slate-500 rounded-xl">Concluir</button>
     </div>
   </div>
 </div>
