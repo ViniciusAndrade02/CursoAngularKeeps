@@ -1,0 +1,4 @@
+<h1 class="">Puxando o que esta no HTTP: ---> <span class="text-xl">{{dinamico.id}}</span></h1>
+<h1 class="pb-2">Puxando o que esta no HTTP: ---> <span class="text-xl">{{dinamico.name}}</span></h1>
+<a class="p-2 bg-green-400 rounded-xl " [queryParams]="{allowEdit:1}" [routerLink]="['/dinamico',10,'Anna']"> Mudar a escrita ai em cima</a>
+<button (click)="onLoadDinamico()" class="p-2 bg-red-400 rounded-xl block mt-3">Mudar a rota DINAMICAMENTE</button>

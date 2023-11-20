@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { Routes,RouterModule } from '@angular/router';
@@ -23,6 +23,8 @@ import { RouterComponent } from './router/router.component';
 import { UsuarioComponent } from './router/usuario/usuario.component';
 import { ProfissaoComponent } from './router/profissao/profissao.component';
 import { AnimalComponent } from './router/animal/animal.component';
+import { DinamicoComponent } from './router/dinamico/dinamico.component';
+import { PageNotFoundComponent } from './router/page-not-found/page-not-found.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +32,11 @@ const appRoutes: Routes = [
   { path: 'usuario', component: UsuarioComponent },
   { path: 'animal', component: AnimalComponent },
   { path: 'profissao', component: ProfissaoComponent },
+  { path: 'dinamico/:id/:name', component: DinamicoComponent},
+  { path: 'something', component: PageNotFoundComponent },
 ];
+
+
 
 @NgModule({
   declarations: [
@@ -49,12 +55,12 @@ const appRoutes: Routes = [
     TestComponent,
     BasicHighLightDirective, //é um directive,
     BetterHighLightDirective, //é uma directive
-    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, 
+    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, DinamicoComponent, PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]
