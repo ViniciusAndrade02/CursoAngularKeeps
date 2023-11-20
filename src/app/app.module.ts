@@ -33,7 +33,8 @@ const appRoutes: Routes = [
   { path: 'animal', component: AnimalComponent },
   { path: 'profissao', component: ProfissaoComponent },
   { path: 'dinamico/:id/:name', component: DinamicoComponent},
-  { path: 'something', component: PageNotFoundComponent },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path:'**', redirectTo:'/not-found' } //pegar todos os caminhos que não achar
 ];
 
 
