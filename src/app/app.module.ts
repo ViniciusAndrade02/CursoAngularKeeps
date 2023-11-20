@@ -25,19 +25,7 @@ import { ProfissaoComponent } from './router/profissao/profissao.component';
 import { AnimalComponent } from './router/animal/animal.component';
 import { DinamicoComponent } from './router/dinamico/dinamico.component';
 import { PageNotFoundComponent } from './router/page-not-found/page-not-found.component';
-
-
-const appRoutes: Routes = [
-  { path: '', component: RouterComponent }, //inicial
-  { path: 'usuario', component: UsuarioComponent },
-  { path: 'animal', component: AnimalComponent },
-  { path: 'profissao', component: ProfissaoComponent },
-  { path: 'dinamico/:id/:name', component: DinamicoComponent},
-  { path: 'not-found', component: PageNotFoundComponent },
-  { path:'**', redirectTo:'/not-found' } //pegar todos os caminhos que não achar
-];
-
-
+import { AppRoutingModule } from './app-rounting.module';
 
 @NgModule({
   declarations: [
@@ -61,7 +49,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
