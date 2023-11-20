@@ -25,6 +25,7 @@ import { ProfissaoComponent } from './router/profissao/profissao.component';
 import { AnimalComponent } from './router/animal/animal.component';
 import { DinamicoComponent } from './router/dinamico/dinamico.component';
 import { PageNotFoundComponent } from './router/page-not-found/page-not-found.component';
+import { InicioCursoComponent } from './inicio-curso/inicio-curso.component';
 import { AppRoutingModule } from './app-rounting.module';
 
 @NgModule({
@@ -44,7 +45,8 @@ import { AppRoutingModule } from './app-rounting.module';
     TestComponent,
     BasicHighLightDirective, //é um directive,
     BetterHighLightDirective, //é uma directive
-    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, DinamicoComponent, PageNotFoundComponent
+    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, DinamicoComponent, PageNotFoundComponent,
+    InicioCursoComponent
   ],
   imports: [
     BrowserModule,

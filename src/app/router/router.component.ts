@@ -7,9 +7,9 @@ import { RouterService } from './router.service';
   styleUrls: ['./router.component.scss'],
 })
 export class RouterComponent {
-  btn: boolean = false; //true
-  showRouter: boolean = true; //false
-  hideName: boolean = false; //true
+  btn: boolean = true; //true
+  showRouter: boolean = false; //false
+  hideName: boolean = true; //true
   inputName!: string;
   erroDigitar:boolean = false
 

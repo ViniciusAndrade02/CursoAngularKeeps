@@ -6,20 +6,6 @@ import { RouterService } from './router/router.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'CursoAngular';
-  name!:string
-  servers:string[] = ['TestServer']
-  serverName:string = 'TestServer'
-  serverElements!:string[]
-
-  constructor(private recebidoBtn:RouterService){
-  }
-
-
-  GerarServer(){
-    this.servers.push(this.serverName)
-
-  }
 
   //Projeto Seção 5
 
