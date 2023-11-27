@@ -1,8 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { Routes,RouterModule } from '@angular/router';
 
+import { EmptyComponent } from './empty/empty.component';
 import { ServerComponent } from './Server/server/server.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './ProjectAngular/Header/header.component';
@@ -27,9 +28,12 @@ import { DinamicoComponent } from './router/dinamico/dinamico.component';
 import { PageNotFoundComponent } from './router/page-not-found/page-not-found.component';
 import { InicioCursoComponent } from './inicio-curso/inicio-curso.component';
 import { AppRoutingModule } from './app-rounting.module';
+import { CadastroComponent } from './router/cadastro/cadastro.component';
+import { FormsComponent } from './formulario/forms/forms.component';
 
 @NgModule({
   declarations: [
+    EmptyComponent,
     ServerComponent,
     AppComponent,
     HeaderComponent,
@@ -46,12 +50,13 @@ import { AppRoutingModule } from './app-rounting.module';
     BasicHighLightDirective, //é um directive,
     BetterHighLightDirective, //é uma directive
     DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, DinamicoComponent, PageNotFoundComponent,
-    InicioCursoComponent
+    InicioCursoComponent,CadastroComponent,FormsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

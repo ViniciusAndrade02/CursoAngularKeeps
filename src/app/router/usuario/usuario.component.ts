@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterService } from '../router.service';
 import { Router } from '@angular/router';
 @Component({
@@ -6,8 +6,9 @@ import { Router } from '@angular/router';
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss'],
 })
-export class UsuarioComponent {
+export class UsuarioComponent implements OnInit{
   nameInput!: string;
+  getBolleanCadastro:boolean = false
   users: any[] = [[
     'nameAnimal',
     'tipoAnimal',
@@ -19,7 +20,12 @@ export class UsuarioComponent {
     this.nameInput = this.routerService.inputNome
     //pegar a array do router.service
     this.users = this.routerService.usersDescription
+  }
 
+  ngOnInit(): void {
+    this.routerService.activaredEmitter.subscribe(didActivate => {
+      this.getBolleanCadastro = didActivate
+    })
   }
 
 

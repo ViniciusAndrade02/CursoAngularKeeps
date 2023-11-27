@@ -8,7 +8,7 @@ import { RouterService } from './router.service';
 })
 export class RouterComponent {
   btn: boolean = true; //true
-  showRouter: boolean = false; //false
+  showRouter: boolean = true; //false
   hideName: boolean = true; //true
   inputName!: string;
   erroDigitar:boolean = false
