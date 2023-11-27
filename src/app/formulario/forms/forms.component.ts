@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild,Input } from '@angular/core';
 import { FormGroup, FormsModule, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-forms',
@@ -6,8 +6,8 @@ import { FormGroup, FormsModule, NgForm } from '@angular/forms';
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent {
-
   @ViewChild('f') signupForm!:NgForm;
+  @Input() mensagem2!:string //pegando variavel componente pai 
   defaultQuestion:string = 'bolacha';
   user = {
     username:'',
@@ -16,12 +16,7 @@ export class FormsComponent {
     answer:'',
 
   }
-  //onSumit(form:NgForm){
-    //console.log(form)
-  //}
   suggestUserName(){
-    const suggestName = 'LEITE'
-
     this.signupForm.form.patchValue({
       userData: {
         username:'vinicius',
@@ -35,8 +30,6 @@ export class FormsComponent {
     this.user.email = this.signupForm.value.userData.email //esse email é o name do input
     this.user.secretQuestion = this.signupForm.value.secret
     this.user.answer = this.signupForm.value.asnwer
-
     this.signupForm.reset() // resetar os valores do formulário
   }
-
 }

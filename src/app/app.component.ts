@@ -6,9 +6,7 @@ import { RouterService } from './router/router.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
   //Projeto Seção 5
-
   serverElement = [{
     type:'server',
     name:'teste',
@@ -32,6 +30,10 @@ export class AppComponent {
     this.mensagemRecebida = mensagem;
   }
 
+
+
+
+  
   onServerAdded( serverData:{serverName:string,serverContent:string} ){
     this.serverElement.push({
       type: 'serve',

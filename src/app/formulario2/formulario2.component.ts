@@ -9,14 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class Formulario2Component implements OnInit{
 
-  @Input() mensagem: { nome: string; idade: number }[] = [];
-  @Output() enviando:EventEmitter<string> = new EventEmitter<string>();
+  @Input() mensagem: { nome: string; idade: number }[] = []; //pegado a variavel docomponente pai
+  @Output() enviando:EventEmitter<string> = new EventEmitter<string>(); //jogando para o componente Pai
 
   envianoOutput:string = 'OLÁ,mensagem vinda no formulario 2'
-
   genders: string[] = ['male','female']
   forbiddenUsername:string[] = ['Chris','Anna']
-
   signupForm!:FormGroup
 
   ngOnInit(){

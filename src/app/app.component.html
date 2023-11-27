@@ -10,12 +10,11 @@
 <!-- FORMULARIOOOO -->
 
 <div class="container mx-auto px-4 pt-5 "> 
-  <app-forms ></app-forms>
-  {{mensagemRecebida}}
+  <app-forms [mensagem2]="mensagemRecebida"></app-forms>
 </div>
 
 <hr>
 
 <div class="container mx-auto px-4 pt-5 "> 
-  <app-formulario2 (enviando)="recebendoMensagem($event)" [mensagem]="mensagemDoPai"></app-formulario2>
+  <app-formulario2 (enviando)="recebendoMensagem($event)"    [mensagem]="mensagemDoPai"></app-formulario2>
 </div>
