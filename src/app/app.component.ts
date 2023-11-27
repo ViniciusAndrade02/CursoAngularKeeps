@@ -15,6 +15,17 @@ export class AppComponent {
     content:"Just a test!"
   }]
 
+  mensagemDoPai: { nome: string; idade: number }[] = [
+    {
+      nome: 'Leticia',
+      idade: 10
+    },
+    {
+      nome:'viicius',
+      idade:11
+    }
+  ];
+
   onServerAdded( serverData:{serverName:string,serverContent:string} ){
     this.serverElement.push({
       type: 'serve',

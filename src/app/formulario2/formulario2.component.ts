@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Form, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class Formulario2Component implements OnInit{
 
+  @Input() mensagem: { nome: string; idade: number }[] = [];
   genders: string[] = ['male','female']
   forbiddenUsername:string[] = ['Chris','Anna']
 
