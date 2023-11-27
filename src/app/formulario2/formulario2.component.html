@@ -1,0 +1,43 @@
+<span>Parte 2</span>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div class="flex flex-col" >
+
+      <div formGroupName="userData" class="grid">
+        <label for="">Name</label>
+        <input 
+        type="text" 
+        class="border-2 border-blue-400 w-40"
+        formControlName="username"
+        >
+        <span *ngIf="!signupForm.get('userData.username')?.valid && signupForm.get('userData.username')?.touched">Insira Nome Valido</span>
+
+        <label for="">Email</label>
+        <input 
+        type="text" 
+        class="border-2 border-blue-400 w-40 my-1"
+        formControlName="email"
+        >
+      </div>
+
+      <div *ngFor="let gender of genders">
+        <input 
+        type="radio"
+        formControlName="gender"
+        [value]="gender"> {{gender}}
+      </div>
+
+      <div formArrayName="hobbies">
+        <h4 class="pl-7">Meus Hobbys</h4>
+        <button (click)="onAddHooby()" class="border-2 border-green-400 w-40 my-1 py-2"> Adicionar Hobbys</button>
+
+        <div *ngFor="let hobbyControl of $any(signupForm.get('hobbies')).controls; let i = index">
+          <input placeholder="Digite seu favorito hooby" class="border-2 border-green-800" type="text" [formControlName]="i">
+        </div>
+      </div>
+      
+
+      <button [disabled]="!signupForm.valid" class="p-2 border-2 bg-red-400 w-40" type="submit">ENVIAR</button>
+  </div>
+
+</form>
+
