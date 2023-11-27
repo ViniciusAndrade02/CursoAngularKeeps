@@ -39,5 +39,4 @@ export class FormsComponent {
     this.signupForm.reset() // resetar os valores do formulário
   }
 
-
 }

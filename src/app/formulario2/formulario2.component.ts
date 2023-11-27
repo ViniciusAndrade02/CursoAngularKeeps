@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Form, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -10,6 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class Formulario2Component implements OnInit{
 
   @Input() mensagem: { nome: string; idade: number }[] = [];
+  @Output() enviando:EventEmitter<string> = new EventEmitter<string>();
+
+  envianoOutput:string = 'OLÁ,mensagem vinda no formulario 2'
+
   genders: string[] = ['male','female']
   forbiddenUsername:string[] = ['Chris','Anna']
 
@@ -34,6 +38,6 @@ export class Formulario2Component implements OnInit{
 
   onSubmit(){
     console.log(this.signupForm)
-    
+    this.enviando.emit(this.envianoOutput)
   }
 }

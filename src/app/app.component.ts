@@ -26,6 +26,12 @@ export class AppComponent {
     }
   ];
 
+  mensagemRecebida: string = '';
+
+  recebendoMensagem(mensagem: string) {
+    this.mensagemRecebida = mensagem;
+  }
+
   onServerAdded( serverData:{serverName:string,serverContent:string} ){
     this.serverElement.push({
       type: 'serve',
