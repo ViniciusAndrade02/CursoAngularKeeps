@@ -31,6 +31,7 @@ import { AppRoutingModule } from './app-rounting.module';
 import { CadastroComponent } from './router/cadastro/cadastro.component';
 import { FormsComponent } from './formulario/forms/forms.component';
 import { Formulario2Component } from './formulario2/formulario2.component';
+import { ObservablesComponent } from './observables/observables.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { Formulario2Component } from './formulario2/formulario2.component';
     BasicHighLightDirective, //é um directive,
     BetterHighLightDirective, //é uma directive
     DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, DinamicoComponent, PageNotFoundComponent,
-    InicioCursoComponent,CadastroComponent,FormsComponent,Formulario2Component
+    InicioCursoComponent,CadastroComponent,FormsComponent,Formulario2Component,ObservablesComponent
   ],
   imports: [
     BrowserModule,
