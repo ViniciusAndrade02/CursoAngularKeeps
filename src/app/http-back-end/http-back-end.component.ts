@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Post } from './http-back-end.model';
 
 @Component({
   selector: 'app-http-back-end',
@@ -9,15 +10,18 @@ import { map } from 'rxjs/operators';
 })
 export class HttpBackEndComponent implements OnInit {
   //POST --> ENVIA
+  loadedPosts: Post[] = [];
+  loading:boolean = false
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.fetchPosts();
   }
 
-  onCreatePost(postData: { title: string; content: string }) {
+  onCreatePost(postData: Post) {
     this.http
-      .post(
+      .post<{name:string}>(
         'https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json',
         postData
       )
@@ -29,11 +33,12 @@ export class HttpBackEndComponent implements OnInit {
   //fetch-->buscar
   //função para pegar todos os posts dentro do banco de dados
   fetchPosts() {
+    this.loading = false
     return this.http
       .get('https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json')
       .pipe(
         map((responseData: { [key: string]: any }) => {
-          const postsArray = [];
+          const postsArray:Post[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
               postsArray.push({ ...responseData[key], id: key });
@@ -43,7 +48,8 @@ export class HttpBackEndComponent implements OnInit {
         })
       )
       .subscribe(posts => {
-        console.log(posts)
+        this.loading = true
+        this.loadedPosts = posts
       })
   }
 }

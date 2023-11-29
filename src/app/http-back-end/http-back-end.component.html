@@ -14,5 +14,20 @@
       <button type="submit" class="px-6 py-3 border-2 bg-blue-400 rounded-md text-gray-100" [disabled]="!postForm.valid">Enviar POST</button>
       <button type="button" (click)="postForm.resetForm()">Limpar POST</button>
     </div>
+
+    <div>
+
+    </div>
+
+    <div>
+      <p *ngIf="loadedPosts.length < 1 && loading">Não existe nada aqui</p>
+      <ul *ngIf="loadedPosts.length >= 1 ">
+        <li *ngFor="let post of loadedPosts" class="my-2 p-2 border-2 border-orange-400 rounded-lg">
+          <h1>Título: {{post.title}}</h1>
+          <p>Contéudo: {{post.content}}</p>
+        </li>
+      </ul>
+      <p *ngIf="!loading">Carregando....</p>
+    </div>
   </form>
 </div>
