@@ -42,6 +42,6 @@
 </form>
 
 <div *ngFor="let item of mensagem">
-  Nome: {{ item.nome | uppercase }}, Idade: {{ item.idade }}
+  Nome: {{ item.nome | shorten:2 }}, Idade: {{ item.idade }}
 </div>
 

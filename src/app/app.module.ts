@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { Routes,RouterModule } from '@angular/router';
+import {HttpClient, HttpClientModule} from '@angular/common/http'
 
 import { EmptyComponent } from './empty/empty.component';
 import { ServerComponent } from './Server/server/server.component';
@@ -32,6 +33,8 @@ import { CadastroComponent } from './router/cadastro/cadastro.component';
 import { FormsComponent } from './formulario/forms/forms.component';
 import { Formulario2Component } from './formulario2/formulario2.component';
 import { ObservablesComponent } from './observables/observables.component';
+import { ShortenPipe } from './shorten.pipes';
+import { HttpBackEndComponent } from './http-back-end/http-back-end.component';
 
 @NgModule({
   declarations: [
@@ -51,14 +54,15 @@ import { ObservablesComponent } from './observables/observables.component';
     TestComponent,
     BasicHighLightDirective, //é um directive,
     BetterHighLightDirective, //é uma directive
-    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, DinamicoComponent, PageNotFoundComponent,
-    InicioCursoComponent,CadastroComponent,FormsComponent,Formulario2Component,ObservablesComponent
+    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, DinamicoComponent, PageNotFoundComponent,ShortenPipe,
+    InicioCursoComponent,CadastroComponent,FormsComponent,Formulario2Component,ObservablesComponent,HttpBackEndComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

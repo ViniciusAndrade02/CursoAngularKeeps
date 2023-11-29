@@ -1,0 +1,18 @@
+<div class="flex justify-center">
+  <form class="w-full max-w-screen-md" #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+    <div class="mb-4">
+      <label for="titulo" class="block text-gray-600">Título</label>
+      <input class="w-full px-3 py-2 border-2 border-blue-400 rounded-md" id="titulo" required ngModel name="title" type="text">
+    </div>
+
+    <div class="mb-4">
+      <label for="conteudo" class="block text-gray-600">Conteúdo</label>
+      <textarea class="w-full px-3 py-2 border-2 border-green-400 rounded-md" id="conteudo" required ngModel name="content"></textarea>
+    </div>
+
+    <div class="flex justify-between">
+      <button type="submit" class="px-6 py-3 border-2 bg-blue-400 rounded-md text-gray-100" [disabled]="!postForm.valid">Enviar POST</button>
+      <button type="button" (click)="postForm.resetForm()">Limpar POST</button>
+    </div>
+  </form>
+</div>
