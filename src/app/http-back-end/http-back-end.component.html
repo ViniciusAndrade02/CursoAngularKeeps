@@ -12,7 +12,7 @@
 
     <div class="flex justify-between">
       <button type="submit" class="px-6 py-3 border-2 bg-blue-400 rounded-md text-gray-100" [disabled]="!postForm.valid">Enviar POST</button>
-      <button type="button" (click)="postForm.resetForm()">Limpar POST</button>
+      <button type="button" class="px-6 py-3 border-2 bg-red-500 rounded-md text-gray-100" (click)="removePost()">Remover POST</button>
     </div>
 
     <div>
