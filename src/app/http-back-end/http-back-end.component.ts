@@ -32,7 +32,7 @@ export class HttpBackEndComponent implements OnInit {
 
   teste(){
     this.postService.fetchPosts().subscribe((posts) => {
-      console.log(posts)
+      this.loadedPosts = posts
     });
   }
 
