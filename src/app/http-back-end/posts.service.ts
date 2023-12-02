@@ -1,37 +1,40 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Post } from "./http-back-end.model";
-import { map } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Post } from './http-back-end.model';
+import { map } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root',
 })
+export class PostService {
 
-export class PostService{
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) {}
-
-  createAndStrePost(title:string, content:string){
-    const postData:Post= {title:title, content:content}
+  createAndStrePost(title: string, content: string) {
+    const postData: Post = { title: title, content: content };
+    
     this.http
-      .post<{name:string}>(
+      .post<{ name: string }>(
         'https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json',
-        postData
+        postData,
+        {
+          observe:'response'
+        }
       )
-      .pipe()
       .subscribe((responseData) => {
-        console.log(responseData);
+        console.log(responseData)
       });
   }
 
   //fetch-->buscar
   //função para pegar todos os posts dentro do banco de dados
-  fetchPosts(){
+  fetchPosts() {
     return this.http
       .get('https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json')
       .pipe(
         map((responseData: { [key: string]: any }) => {
-          const postsArray:Post[] = [];
+          const postsArray: Post[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
               postsArray.push({ ...responseData[key], id: key });
@@ -39,9 +42,11 @@ export class PostService{
           }
           return postsArray;
         })
-      )
+      );
   }
-    deletePosts(){
-      return this.http.delete('https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json')
-    }
+
+  deleteAllPosts(){
+    return this.http.delete('https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json')
   }
+
+}

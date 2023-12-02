@@ -12,25 +12,80 @@ import { PostService } from './posts.service';
 export class HttpBackEndComponent implements OnInit {
   //POST --> ENVIA
   loadedPosts: Post[] = [];
-  loading:boolean = false
+  loading: boolean = false;
 
-  constructor(private postService: PostService) {}
+  constructor(private http: HttpClient, private postService: PostService) {
+  }
 
   ngOnInit(): void {
-    this.postService.fetchPosts().subscribe( posts => {
-      this.loading= true
+    this.loadingData();
+  }
+
+
+  loadingData(){
+    this.loading = false;
+    this.postService.fetchPosts().subscribe((posts) => {
+      this.loading = true;
       this.loadedPosts = posts
-    })
+    });
+  }
+
+  teste(){
+    this.postService.fetchPosts().subscribe((posts) => {
+      console.log(posts)
+    });
   }
 
   onCreatePost(postData: Post) {
-    this.postService.createAndStrePost(postData.title,postData.content)
+    this.postService.createAndStrePost(postData.title, postData.content);
+    
   }
 
-  removePost(){
-    this.postService.deletePosts().subscribe(() => {
-      this.loadedPosts = [];
+  excluir(indexDelete: number) {
+    const id = this.loadedPosts[indexDelete].id; // Pegar o ID na array que você quer remover
+
+    this.http
+      .delete(
+        `https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts/${id}.json`
+      )
+      .subscribe((response) => {
+        console.log('Post removido com sucesso', response);
+      });
+
+    this.loadedPosts.map((item, index) => {
+      if (index == indexDelete) {
+        this.loadedPosts.splice(index,1)
+      }
     });
   }
-}
 
+  removeAll(){
+    this.postService.deleteAllPosts().subscribe(() => {
+      this.loadedPosts = []
+    })
+  }
+
+  atualizarPost() {
+    const id = this.loadedPosts[1].id; // chave criptografada
+    const mensagemNova = 'leite';
+
+    const newData = {
+      title: mensagemNova, // Novo título desejado
+      content: this.loadedPosts[1].content, // Mantenha o conteúdo existente ou modifique conforme necessário
+    };
+
+    console.log('esta funcionando?',newData)
+
+    this.http
+      .patch(
+        `https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts/${id}.json`,
+        newData
+        
+      )
+      .subscribe((response) => {
+        console.log(response);
+        this.loadingData();
+      });
+  }
+
+}
