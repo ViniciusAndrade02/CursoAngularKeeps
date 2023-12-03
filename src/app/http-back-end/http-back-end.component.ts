@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { Post } from './http-back-end.model';
 import { PostService } from './posts.service';
 import { FormGroup, NgForm, Validator } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-http-back-end',
@@ -22,7 +23,7 @@ export class HttpBackEndComponent implements OnInit {
   intervalId: any;
   signupForm!: FormGroup;
 
-  constructor(private http: HttpClient, private postService: PostService) {}
+  constructor(private http: HttpClient, private postService: PostService, private location:Location) {}
 
   startInterval() {
     this.intervalId = setInterval(() => {
@@ -45,9 +46,12 @@ export class HttpBackEndComponent implements OnInit {
       this.loadedPosts = [];
     });
 
-    setTimeout(() => {
-      this.startInterval();
-    }, 1000);
+    this.location.replaceState(this.location.path())
+  }
+
+  voltar(){
+    this.location.replaceState(this.location.path())
+    this.showEdit = -2;
   }
 
   excluir(indexDelete: number) {

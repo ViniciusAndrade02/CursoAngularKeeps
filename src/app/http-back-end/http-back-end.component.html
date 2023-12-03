@@ -18,11 +18,11 @@
 </div>
 
 
-<div>
+<div class=" pb-36">
   <p *ngIf="loadedPosts.length < 1 && loading">Não existe nada aqui</p>
   <ul *ngIf="loadedPosts.length >= 1 ">
     <li *ngFor="let post of loadedPosts; let i = index">
-      <div class="relative my-2 p-2 border-2 border-orange-400 rounded-lg">
+      <div class="relative my-2 p-2 border-2 border-orange-400 rounded-lg ">
         <h1>Título: {{ post.title }}</h1>
         <p>Contéudo: {{post.content}}</p>
         <button type="button" class="p-2 bg-red-400 rounded-lg absolute right-3 bottom-2" (click)="excluir(i)">Excluir</button>
@@ -36,7 +36,8 @@
         </div>
 
         <div>
-          <button type="button" (click)="EnviarEdit(i)" class="bg-blue-400 p-2 rounded-lg mr-4">Editar</button>
+          <button type="button" (click)="EnviarEdit(i)" class="bg-blue-400 p-2 rounded-lg mr-2">Editar</button>
+          <button type="button" (click)="voltar()" class="bg-red-400 p-2 rounded-lg mr-4">Voltar</button>
         </div>
       </div>
     </li>
