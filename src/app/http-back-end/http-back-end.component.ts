@@ -21,13 +21,19 @@ export class HttpBackEndComponent implements OnInit {
     this.loadingData();
 
     setInterval(() => {
-      this.loadedPosts = this.postService.atualizarPost
+      this.loadingDataWithoutLoad()
     }, 1000);
   }
 
   onCreatePost(postData: Post) {
     this.postService.createAndStrePost(postData.title, postData.content);
 
+  }
+
+  loadingDataWithoutLoad(){
+    this.postService.fetchPosts().subscribe((posts) => {
+      this.loadedPosts = posts
+    });
   }
 
 
