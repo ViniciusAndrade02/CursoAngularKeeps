@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class PostService {
 
-  atualizarPost!: Post[]
+  url:string = 'https://primeiro-test-67f48-default-rtdb.firebaseio.com'
 
   constructor(private http: HttpClient) {}
 
@@ -19,17 +19,14 @@ export class PostService {
     
     this.http
       .post<{ name: string }>(
-        'https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json',
+        `${this.url}/posts.json`,
         postData,
         {
           observe:'response'
         }
       )
       .subscribe((responseData) => {
-        console.log(responseData),
-        this.fetchPosts().subscribe((post) => {
-          this.atualizarPost = post
-        })
+        console.log(responseData)
       });
   }
 
@@ -37,7 +34,7 @@ export class PostService {
   //função para pegar todos os posts dentro do banco de dados
   fetchPosts() {
     return this.http
-      .get('https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json')
+      .get(`${this.url}/posts.json`)
       .pipe(
         map((responseData: { [key: string]: any }) => {
           const postsArray: Post[] = [];
@@ -53,7 +50,39 @@ export class PostService {
 
 
   deleteAllPosts(){
-    return this.http.delete('https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json')
+    return this.http.delete(`${this.url}/posts.json`)
   }
+
+  deleteMessage(idDelete:any){
+    this.http
+    .delete(
+      `${this.url}/posts/${idDelete}.json`
+    )
+    .subscribe((response) => {
+      console.log('Post removido com sucesso', response);
+    });
+
+
+  }
+
+  updatePost(idUpload:any,titleEdit:string, descriptionEdit:string){
+
+    const newData = {
+      title: titleEdit, 
+      content: descriptionEdit, 
+    };
+
+    this.http
+      .patch(
+        `${this.url}/posts/${idUpload}.json`,
+        newData
+        
+      )
+      .subscribe((upload) => {
+        console.log('Post atualizado com sucesso', upload);
+      });
+  }
+
+
 
 }

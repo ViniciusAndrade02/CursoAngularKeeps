@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewRef } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Post } from './http-back-end.model';
 import { PostService } from './posts.service';
+import { FormGroup, NgForm, Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-http-back-end',
@@ -11,90 +12,89 @@ import { PostService } from './posts.service';
 })
 export class HttpBackEndComponent implements OnInit {
   //POST --> ENVIA
+  @ViewChild('postForm') signForm!: NgForm
+
   loadedPosts: Post[] = [];
   loading: boolean = false;
+  showEdit: number = -1;
+  title!: string;
+  description!: string;
+  intervalId: any;
+  signupForm!: FormGroup;
 
-  constructor(private http: HttpClient, private postService: PostService) {
+  constructor(private http: HttpClient, private postService: PostService) {}
+
+  startInterval() {
+    this.intervalId = setInterval(() => {
+      this.loadingDataWithoutLoad();
+    }, 1000);
   }
 
   ngOnInit(): void {
     this.loadingData();
-
-    setInterval(() => {
-      this.loadingDataWithoutLoad()
-    }, 1000);
+    this.startInterval();
   }
 
   onCreatePost(postData: Post) {
     this.postService.createAndStrePost(postData.title, postData.content);
-
+    this.signForm.reset()
   }
 
-  loadingDataWithoutLoad(){
-    this.postService.fetchPosts().subscribe((posts) => {
-      this.loadedPosts = posts
+  removeAll() {
+    this.postService.deleteAllPosts().subscribe(() => {
+      this.loadedPosts = [];
     });
   }
-
-
-  loadingData(){
-    this.loading = false;
-    this.postService.fetchPosts().subscribe((posts) => {
-      this.loading = true;
-      this.loadedPosts = posts
-    });
-  }
-
-  teste(){
-    console.log(this.postService.atualizarPost)
-  }
-
 
   excluir(indexDelete: number) {
-    const id = this.loadedPosts[indexDelete].id; // Pegar o ID na array que você quer remover
+    this.postService.deleteMessage(this.loadedPosts[indexDelete].id);
+    this.showEdit = -2;
 
-    this.http
-      .delete(
-        `https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts/${id}.json`
-      )
-      .subscribe((response) => {
-        console.log('Post removido com sucesso', response);
-      });
+    clearInterval(this.intervalId);
 
     this.loadedPosts.map((item, index) => {
       if (index == indexDelete) {
         this.loadedPosts.splice(index,1)
       }
     });
+
+    setTimeout(() => {
+      this.startInterval();
+    }, 1000);
+
   }
 
-  removeAll(){
-    this.postService.deleteAllPosts().subscribe(() => {
-      this.loadedPosts = []
-    })
+  loadingDataWithoutLoad() {
+    this.postService.fetchPosts().subscribe((posts) => {
+      this.loadedPosts = posts;
+    });
   }
 
-  atualizarPost() {
-    const id = this.loadedPosts[1].id; // chave criptografada
-    const mensagemNova = 'leite';
-
-    const newData = {
-      title: mensagemNova, // Novo título desejado
-      content: this.loadedPosts[1].content, // Mantenha o conteúdo existente ou modifique conforme necessário
-    };
-
-    console.log('esta funcionando?',newData)
-
-    this.http
-      .patch(
-        `https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts/${id}.json`,
-        newData
-        
-      )
-      .subscribe((response) => {
-        console.log(response);
-        this.loadingData();
-      });
+  editar(uploadEdit: number) {
+    this.showEdit = uploadEdit;
+    clearInterval(this.intervalId);
   }
 
+  EnviarEdit(idEdit:number) {
+
+    this.loading = false;
+    this.postService.updatePost(this.loadedPosts[idEdit].id,this.title,this.description)
+
+    setTimeout(() => {
+      this.startInterval();
+    }, 1000);
+
+    this.showEdit = -1;
+    this.description = ""
+    this.title = ""
+    this.loading = true;
+  }
+
+  loadingData() {
+    this.loading = false;
+    this.postService.fetchPosts().subscribe((posts) => {
+      this.loading = true;
+      this.loadedPosts = posts;
+    });
+  }
 }

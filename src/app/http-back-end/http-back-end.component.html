@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  <form class="w-full max-w-screen-md" #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+  <form class="w-full max-w-screen" #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
     <div class="mb-4">
       <label for="titulo" class="block text-gray-600">Título</label>
       <input class="w-full px-3 py-2 border-2 border-blue-400 rounded-md" id="titulo" required ngModel name="title" type="text">
@@ -12,30 +12,34 @@
 
     <div class="flex justify-between">
       <button type="submit" class="px-6 py-3 border-2 bg-blue-400 rounded-md text-gray-100" [disabled]="!postForm.valid">Enviar POST</button>
-      <button type="button" (click)="removeAll()" class="px-6 py-3 border-2 bg-red-600 rounded-md text-gray-100" >Remover Tudo</button>
+      <button type="button" (click)="removeAll()" class="px-6 py-3 border-2 bg-red-600 rounded-md text-gray-100">Remover Tudo</button>
     </div>
-
-    <div>
-      <p *ngIf="loadedPosts.length < 1 && loading">Não existe nada aqui</p>
-      <ul *ngIf="loadedPosts.length >= 1 ">
-        <li *ngFor="let post of loadedPosts; let i = index" class="my-2 p-2 border-2 border-orange-400 rounded-lg">
-          <div class="relative">
-            <h1>Título: {{ post.title }}</h1>
-            <p>Contéudo: {{post.content}}</p>
-            <button class="p-2 bg-red-400 rounded-lg absolute right-0 bottom-1" (click)="excluir(i)">Excluir</button>
-          </div>
-        </li>
-      </ul>
-      <p *ngIf="!loading">Carregando....</p>
-    </div>
-
-    <div>
-      <button type="button" (click)="atualizarPost()"> Change position 2</button>
-    </div>
-
-    <div>
-      <button type="button" (click)="teste()">Mostrar todos usuários</button>
-    </div>
-
   </form>
+</div>
+
+
+<div>
+  <p *ngIf="loadedPosts.length < 1 && loading">Não existe nada aqui</p>
+  <ul *ngIf="loadedPosts.length >= 1 ">
+    <li *ngFor="let post of loadedPosts; let i = index">
+      <div class="relative my-2 p-2 border-2 border-orange-400 rounded-lg">
+        <h1>Título: {{ post.title }}</h1>
+        <p>Contéudo: {{post.content}}</p>
+        <button type="button" class="p-2 bg-red-400 rounded-lg absolute right-3 bottom-2" (click)="excluir(i)">Excluir</button>
+        <button type="button" class="py-2 px-3 bg-green-400 rounded-lg absolute right-20 bottom-2" (click)="editar(i)">Editar</button>
+      </div>
+
+      <div class="flex justify-between items-center" *ngIf="i == showEdit">
+        <div class="">
+          <input [(ngModel)]="title" name="title" placeholder="Titulo" class="pl-2 py-1 border-2 border-blue-400 rounded-md" type="text">
+          <input [(ngModel)]="description" name="description" placeholder="Conteúdo" class="pl-2 py-1 ml-2  border-2 border-blue-400 rounded-md" type="text">
+        </div>
+
+        <div>
+          <button type="button" (click)="EnviarEdit(i)" class="bg-blue-400 p-2 rounded-lg mr-4">Editar</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <p *ngIf="!loading">Carregando....</p>
 </div>
