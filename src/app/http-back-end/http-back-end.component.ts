@@ -44,6 +44,10 @@ export class HttpBackEndComponent implements OnInit {
     this.postService.deleteAllPosts().subscribe(() => {
       this.loadedPosts = [];
     });
+
+    setTimeout(() => {
+      this.startInterval();
+    }, 1000);
   }
 
   excluir(indexDelete: number) {
