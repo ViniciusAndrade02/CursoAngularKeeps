@@ -19,6 +19,15 @@ export class HttpBackEndComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadingData();
+
+    setInterval(() => {
+      this.loadedPosts = this.postService.atualizarPost
+    }, 1000);
+  }
+
+  onCreatePost(postData: Post) {
+    this.postService.createAndStrePost(postData.title, postData.content);
+
   }
 
 
@@ -31,15 +40,9 @@ export class HttpBackEndComponent implements OnInit {
   }
 
   teste(){
-    this.postService.fetchPosts().subscribe((posts) => {
-      this.loadedPosts = posts
-    });
+    console.log(this.postService.atualizarPost)
   }
 
-  onCreatePost(postData: Post) {
-    this.postService.createAndStrePost(postData.title, postData.content);
-    
-  }
 
   excluir(indexDelete: number) {
     const id = this.loadedPosts[indexDelete].id; // Pegar o ID na array que você quer remover

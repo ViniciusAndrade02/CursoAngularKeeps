@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
 import { Post } from './http-back-end.model';
 import { map } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
+
+  atualizarPost!: Post[]
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +26,10 @@ export class PostService {
         }
       )
       .subscribe((responseData) => {
-        console.log(responseData)
+        console.log(responseData),
+        this.fetchPosts().subscribe((post) => {
+          this.atualizarPost = post
+        })
       });
   }
 
@@ -44,6 +50,7 @@ export class PostService {
         })
       );
   }
+
 
   deleteAllPosts(){
     return this.http.delete('https://primeiro-test-67f48-default-rtdb.firebaseio.com/posts.json')
