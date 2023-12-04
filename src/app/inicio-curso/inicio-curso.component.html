@@ -1,35 +1,42 @@
-<div class=" bg-slate-800 flex">
-  <input [(ngModel)]="name" type="text" name="" id="">
-  <p class="bg-red-700">{{name}}</p>
-  <button (click)="GerarServer()" class="text-purple-400 font-semibold"> Clica para adicionar</button>
-</div>
-
-<!-- Let server => nome que escolhi para o looping && server a array -->
-<!-- Funciona assim,a cada item que tiver na array vai gerar um novo app-server -->
-<app-server *ngFor="let server of servers"></app-server>
-
-<!-------------------------------------------------------------->
-<app-header></app-header>
-
-<div class="container mx-auto px-4 pt-5 ">
-  <div class="grid-cols-12">
-    <app-recipes></app-recipes>
-    <app-shopping-list></app-shopping-list>
-    <hr>
-    <p class="text-red-500">Outro projeto abaixo </p>
-    <hr>
+<div >
+  <div class="flex py-10 justify-center items-center">
+    <h1 class="text-2xl bg-blue-200 font-semibold text-orange-700 p-3 rounded-xl">Esse é o meu primeiro Projeto no Curso</h1>
   </div>
-</div>
-
-<!--------------------------------------------------------------->
-<!-- Services is here -->
-<div class="container mx-auto px-4 pt-5">
-  <div class="grid">
-    <app-cockpit></app-cockpit>
-    
-    <hr>
-    <app-test ></app-test>
-    <app-server-element  ></app-server-element>
+  
+  <div class=" bg-slate-800 flex">
+    <input [(ngModel)]="name" type="text" name="" id="">
+    <p class="bg-red-700">{{name}}</p>
+    <button (click)="GerarServer()" class="text-purple-400 font-semibold"> Clica para adicionar</button>
   </div>
+  
+  <!-- Let server => nome que escolhi para o looping && server a array -->
+  <!-- Funciona assim,a cada item que tiver na array vai gerar um novo app-server -->
+  <app-server *ngFor="let server of servers"></app-server>
+  
+  <!-------------------------------------------------------------->
+  <app-header></app-header>
+  
+  <div class="container mx-auto px-4 pt-5 ">
+    <div class="grid-cols-12">
+      <app-recipes></app-recipes>
+      <app-shopping-list></app-shopping-list>
+      <hr>
+      <p class="text-red-500">Outro projeto abaixo </p>
+      <hr>
+    </div>
+  </div>
+  
+  <!--------------------------------------------------------------->
+  <!-- Services is here -->
+  <div class="container mx-auto px-4 pt-5">
+    <div class="grid">
+      <app-cockpit></app-cockpit>
+      
+      <hr>
+      <app-test ></app-test>
+      <app-server-element  ></app-server-element>
+    </div>
+  </div>
+  
+  
 </div>
-

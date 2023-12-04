@@ -1,11 +1,19 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { RouterService } from './router/router.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+  constructor(private router:Router){}
+
+  ngOnInit(): void {
+    // this.router.navigate([''])
+  }
+
   //Projeto Seção 5
   serverElement = [{
     type:'server',

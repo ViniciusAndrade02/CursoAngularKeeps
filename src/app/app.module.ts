@@ -36,10 +36,13 @@ import { Formulario2Component } from './formulario2/formulario2.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { ShortenPipe } from './shorten.pipes';
 import { HttpBackEndComponent } from './http-back-end/http-back-end.component';
+import { ACabecalhoComponent } from './a-cabecalho/a-cabecalho.component';
 
 @NgModule({
   declarations: [
+    
     EmptyComponent,
+    ACabecalhoComponent,
     ServerComponent,
     AppComponent,
     HeaderComponent,
