@@ -11,6 +11,10 @@ import { PageNotFoundComponent } from "./router/page-not-found/page-not-found.co
 import { CadastroComponent } from "./router/cadastro/cadastro.component";
 import { Auth2Component } from "./auth2/auth2.component";
 
+//formularios
+
+import { FormsComponent } from "./formulario/forms/forms.component";
+
                                                                                                                                                             
 import { AppComponent } from "./app.component";
 
@@ -23,7 +27,7 @@ const appRoutes: Routes = [
     { path: 'profissao', component: ProfissaoComponent },
     { path: 'dinamico/:id/:name', component: DinamicoComponent},
   ]},
-  
+  { path: 'FormsComponent', component: FormsComponent},
   { path: 'cadastro', component: CadastroComponent },
   { path: 'auth', component: Auth2Component},
   { path: 'not-found', component: PageNotFoundComponent },
