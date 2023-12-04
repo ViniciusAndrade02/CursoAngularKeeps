@@ -31,6 +31,6 @@ export class DinamicoComponent implements OnInit,DoCheck{
   }
 
   onLoadDinamico(){
-    this.router.navigate(['/dinamico',this.dinamico.id,this.dinamico.name], {queryParams: {allowEdit:20},fragment:'LEITE'})
+    this.router.navigate(['/router/dinamico',this.dinamico.id,this.dinamico.name], {queryParams: {allowEdit:20},fragment:'LEITE'})
   }
 }

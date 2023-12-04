@@ -25,7 +25,7 @@ export class ProfissaoComponent implements OnInit,OnDestroy{
       this.errorProfissao = true
     }else{
       this.routerComponente.receberInputProfissao(this.inputProfissao)
-      this.router.navigate(['./usuario'])
+      this.router.navigate(['router/usuario'])
     }
   }
 

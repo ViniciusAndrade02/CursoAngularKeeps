@@ -10,17 +10,21 @@ import { DinamicoComponent } from "./router/dinamico/dinamico.component";
 import { PageNotFoundComponent } from "./router/page-not-found/page-not-found.component";
 import { CadastroComponent } from "./router/cadastro/cadastro.component";
 import { Auth2Component } from "./auth2/auth2.component";
+
                                                                                                                                                             
 import { AppComponent } from "./app.component";
 
 const appRoutes: Routes = [
   { path: 'menu', component: EmptyComponent }, //inicial.
   { path: 'fistCourse', component: InicioCursoComponent},
-  { path: 'usuario', component: UsuarioComponent },
-  { path: 'animal', component: AnimalComponent },
-  { path: 'profissao', component: ProfissaoComponent },
+  { path: 'router', component: RouterComponent,children: [
+    { path: 'usuario', component: UsuarioComponent },
+    { path: 'animal', component: AnimalComponent },
+    { path: 'profissao', component: ProfissaoComponent },
+    { path: 'dinamico/:id/:name', component: DinamicoComponent},
+  ]},
+  
   { path: 'cadastro', component: CadastroComponent },
-  { path: 'dinamico/:id/:name', component: DinamicoComponent},
   { path: 'auth', component: Auth2Component},
   { path: 'not-found', component: PageNotFoundComponent },
   { path:'**', redirectTo:'/not-found' } //pegar todos os caminhos que não achar

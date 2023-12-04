@@ -31,6 +31,6 @@ export class UsuarioComponent implements OnInit{
 
   addUsers() {
     console.log(this.users)
-    this.router.navigate(['animal'])
+    this.router.navigate(['router/animal'])
   }
 }

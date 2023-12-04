@@ -19,7 +19,7 @@ export class RouterComponent {
     if(this.inputName == null){
        this.erroDigitar = true
     }else{
-      this.router.navigate(['usuario']);
+      this.router.navigate(['router/usuario']);
       this.btn = false;
       this.showRouter = true;
       this.hideName = false;

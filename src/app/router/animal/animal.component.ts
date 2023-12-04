@@ -20,7 +20,7 @@ export class AnimalComponent {
     }else{
       this.tipoDog='Cachorro'
       this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
-      this.router.navigate(['profissao'])
+      this.router.navigate(['router/profissao'])
     }
 
   }
@@ -31,7 +31,7 @@ export class AnimalComponent {
     }else{
       this.tipoDog='Gato'
       this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
-      this.router.navigate(['profissao'])
+      this.router.navigate(['router/profissao'])
     }
   }
   
@@ -41,7 +41,7 @@ export class AnimalComponent {
     }else{
       this.tipoDog='Cavalo'
       this.routeService.receberInputDog(this.inputNameDog , this.tipoDog)
-      this.router.navigate(['profissao'])
+      this.router.navigate(['router/profissao'])
     }
   }
 }
