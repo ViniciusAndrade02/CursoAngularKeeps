@@ -1,4 +1,4 @@
-<div class="flex justify-center">
+<div class="flex justify-center container mx-auto px-4 pt-5">
   <form class="w-full max-w-screen" #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
     <div class="mb-4">
       <label for="titulo" class="block text-gray-600">Título</label>
@@ -18,7 +18,7 @@
 </div>
 
 
-<div class=" pb-36">
+<div class="container mx-auto px-4 pt-5">
   <p *ngIf="loadedPosts.length < 1 && loading">Não existe nada aqui</p>
   <ul *ngIf="loadedPosts.length >= 1 ">
     <li *ngFor="let post of loadedPosts; let i = index">

@@ -10,6 +10,7 @@ import { DinamicoComponent } from "./router/dinamico/dinamico.component";
 import { PageNotFoundComponent } from "./router/page-not-found/page-not-found.component";
 import { CadastroComponent } from "./router/cadastro/cadastro.component";
 import { Auth2Component } from "./auth2/auth2.component";
+import { HttpBackEndComponent } from "./http-back-end/http-back-end.component";
 
 //formularios
 
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   ]},
   { path: 'FormsComponent', component: FormsComponent},
   { path: 'cadastro', component: CadastroComponent },
+  { path: 'apiRest', component: HttpBackEndComponent},
   { path: 'auth', component: Auth2Component},
   { path: 'not-found', component: PageNotFoundComponent },
   { path:'**', redirectTo:'/not-found' } //pegar todos os caminhos que não achar

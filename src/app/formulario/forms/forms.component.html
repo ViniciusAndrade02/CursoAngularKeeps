@@ -1,69 +1,74 @@
-<form action="" (ngSubmit)="onSumit()" #f="ngForm">
+<div class="flex flex-col items-center">
+  <form action="" (ngSubmit)="onSumit()" #f="ngForm">
 
 
-  <div class="flex flex-col" >
-    <div class="flex flex-col" ngModelGroup="userData" #userData="ngModelGroup">
-      <label for="">Name</label>
-      <input 
-      type="text" 
-      class="border-2 border-blue-400 w-40"
-      ngModel
-      name="username"
-      required
-      >
-
-      <button (click)="suggestUserName()">Preencher padrão</button>
+    <div class="flex flex-col" >
+      <div class="flex flex-col" ngModelGroup="userData" #userData="ngModelGroup">
+        <label for="">Name</label>
+        <input 
+        type="text" 
+        class="border-2 border-blue-400 w-40"
+        ngModel
+        name="username"
+        required
+        >
   
-      <label for="">Email</label>
-      <input 
-      type="text" 
-      class="border-2 border-blue-400 w-40 my-1"
-      ngModel
-      name="email"
-      required
-      email
-      #email="ngModel"
-      >
-      <span *ngIf="!email.valid && email.touched" class="text-red-500">Email Invalido</span>
+        <button (click)="suggestUserName()">Preencher padrão</button>
+    
+        <label for="">Email</label>
+        <input 
+        type="text" 
+        class="border-2 border-blue-400 w-40 my-1"
+        ngModel
+        name="email"
+        required
+        email
+        #email="ngModel"
+        >
+        <span *ngIf="!email.valid && email.touched" class="text-red-500">Email Invalido</span>
+    
+        <p *ngIf="!userData.valid && userData.touched">Dados invalidos</p>
+      </div>
   
-      <p *ngIf="!userData.valid && userData.touched">Dados invalidos</p>
+        <label for="">Senha</label>
+        <input 
+        type="text" 
+        class="border-2 border-blue-400 w-40"
+        ngModel
+        name="secret"
+        type="password"
+        >
+  
+        <select name="asnwer" [ngModel]="defaultQuestion" class="border-2 border-blue-400 w-60 my-3">
+          <option value="bolacha">Voce é do time de bolacha?</option>
+          <option value="biscoito"> Voce é do time de biscoito?</option>
+        </select>
+        
+  
+        <button 
+        type="submit" 
+        class="p-2 border-2 bg-red-400 w-40"
+        [disabled]="!f.valid"
+        >ENVIAR</button>
+  
+  
     </div>
-
-      <label for="">Senha</label>
-      <input 
-      type="text" 
-      class="border-2 border-blue-400 w-40"
-      ngModel
-      name="secret"
-      type="password"
-      >
-
-      <select name="asnwer" [ngModel]="defaultQuestion" class="border-2 border-blue-400 w-60 my-3">
-        <option value="bolacha">Voce é do time de bolacha?</option>
-        <option value="biscoito"> Voce é do time de biscoito?</option>
-      </select>
-      
-
-      <button 
-      type="submit" 
-      class="p-2 border-2 bg-red-400 w-40"
-      [disabled]="!f.valid"
-      >ENVIAR</button>
-
-
-  </div>
-
-  <div class="py-4">
-    <div>
-      <h3>SEUS DADOS</h3>
-      <p>Username: {{user.username}}</p>
-      <p>Email: {{user.email}}</p>
-      <p>Secret: {{user.secretQuestion}}</p>
-      <p>Answer: {{user.answer}}</p>
-
+  
+    <div class="py-4">
+      <div>
+        <h3>SEUS DADOS</h3>
+        <p>Username: {{user.username}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>Secret: {{user.secretQuestion}}</p>
+        <p>Answer: {{user.answer}}</p>
+  
+      </div>
     </div>
-  </div>
-
-</form>
-
-<p>LEI {{mensagem2}}</p>
+  
+  </form>
+  
+  <p>LEI {{mensagem2}}</p>
+  
+  
+  <app-formulario2></app-formulario2>
+</div>

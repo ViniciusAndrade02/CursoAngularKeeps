@@ -1,8 +1,8 @@
 import { Component,OnInit,OnDestroy } from '@angular/core';
 import { RouterService } from '../router.service';
 import {Router} from '@angular/router';
-import { count, interval,Subscription } from 'rxjs';
-import { map } from 'rxjs';
+import { interval,Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-profissao',
