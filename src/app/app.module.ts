@@ -8,13 +8,7 @@ import { HttpClientModule} from '@angular/common/http'
 import { EmptyComponent } from './empty/empty.component';
 import { ServerComponent } from './Server/server/server.component';
 import { AppComponent } from './app.component';
-import { CockpitComponent } from './OtherProject/cockpit/cockpit.component';
-import { ServerElementComponent } from './OtherProject/server-element/server-element.component';
 import { OutputComponent } from './output/output.component';
-import { TestComponent } from './OtherProject/test/test.component';
-import { BasicHighLightDirective } from './OtherProject/basic-highlight/basic-hightlight.directive';
-import { BetterHighLightDirective } from './OtherProject/better-hignLight/better-highLight.directive';
-import { DirectiveConstructor } from './OtherProject/bi-diretris-estrutural/diretris-estrutural';
 import { InicioCursoComponent } from './inicio-curso/inicio-curso.component';
 import { AppRoutingModule } from './app-rounting.module';
 import { FormsComponent } from './formulario/forms/forms.component';
@@ -25,24 +19,19 @@ import { HttpBackEndComponent } from './http-back-end/http-back-end.component';
 import { ACabecalhoComponent } from './a-cabecalho/a-cabecalho.component';
 import { Auth2Component } from './auth2/auth2.component';
 
+
 import { AlertComponents } from './shared/alert/alert.component';
 import { LearningModule } from './learningModules/learning.module';
 import { ProjectAngularModule } from './ProjectAngular/projectangular.module';
 import { RouterModules } from './router/router.module';
-import { ShareImports } from './shared/shared.module';
+import { OtherProjectModules } from './OtherProject/otherproject.module';
 @NgModule({
   declarations: [
     EmptyComponent,
     ACabecalhoComponent,
     ServerComponent,
     AppComponent,
-    CockpitComponent,
-    ServerElementComponent,
     OutputComponent,
-    TestComponent,
-    BasicHighLightDirective, //é um directive,
-    BetterHighLightDirective, //é uma directive
-    DirectiveConstructor,
     ShortenPipe,
     InicioCursoComponent,
     FormsComponent,
@@ -62,6 +51,7 @@ import { ShareImports } from './shared/shared.module';
     LearningModule,
     ProjectAngularModule,
     RouterModules,
+    OtherProjectModules
   ],
   providers: [],
   bootstrap: [AppComponent]

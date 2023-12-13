@@ -1,8 +1,5 @@
 import { NgModule } from "@angular/core";
 
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-
 import { HeaderComponent } from "./Header/header.component";
 import { RecipeDetailComponent } from "./Recipes/Recipe-detail/recipe-detail.component";
 import { RecipeItemComponent } from "./Recipes/Recipe-list/recipe-item/recipe-item.component";

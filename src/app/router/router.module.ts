@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { RouterComponent } from './router.component';
 import { UsuarioComponent } from './usuario/usuario.component';
