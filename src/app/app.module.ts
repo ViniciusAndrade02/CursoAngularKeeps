@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { Routes,RouterModule } from '@angular/router';
 import {HttpClient, HttpClientModule} from '@angular/common/http'
 
@@ -37,6 +38,8 @@ import { ObservablesComponent } from './observables/observables.component';
 import { ShortenPipe } from './shorten.pipes';
 import { HttpBackEndComponent } from './http-back-end/http-back-end.component';
 import { ACabecalhoComponent } from './a-cabecalho/a-cabecalho.component';
+import { Auth2Component } from './auth2/auth2.component';
+import { AlertComponents } from './shared/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -59,14 +62,14 @@ import { ACabecalhoComponent } from './a-cabecalho/a-cabecalho.component';
     BasicHighLightDirective, //é um directive,
     BetterHighLightDirective, //é uma directive
     DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, DinamicoComponent, PageNotFoundComponent,ShortenPipe,
-    InicioCursoComponent,CadastroComponent,FormsComponent,Formulario2Component,ObservablesComponent,HttpBackEndComponent
+    InicioCursoComponent,CadastroComponent,FormsComponent,Formulario2Component,ObservablesComponent,HttpBackEndComponent,Auth2Component,AlertComponents
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

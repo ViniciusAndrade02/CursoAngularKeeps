@@ -13,11 +13,8 @@ import { Auth2Component } from "./auth2/auth2.component";
 import { HttpBackEndComponent } from "./http-back-end/http-back-end.component";
 
 //formularios
-
 import { FormsComponent } from "./formulario/forms/forms.component";
 
-                                                                                                                                                            
-import { AppComponent } from "./app.component";
 
 const appRoutes: Routes = [
   { path: 'menu', component: EmptyComponent }, //inicial.
