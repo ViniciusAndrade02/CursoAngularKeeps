@@ -21,18 +21,15 @@ import { ShareImports } from '../shared/shared.module';
   imports: [
     ShareImports,
     RouterModule.forChild([
-      {
-        path: 'router',
-        component: RouterComponent,
-        children: [
-          { path: 'usuario', component: UsuarioComponent },
-          { path: 'animal', component: AnimalComponent },
-          { path: 'profissao', component: ProfissaoComponent },
-          { path: 'dinamico/:id/:name', component: DinamicoComponent },
-        ],
-      },
-    ]),
-  ],
+      {path: 'router',component: RouterComponent, children: [
+        { path: 'usuario', component: UsuarioComponent },
+        { path: 'animal', component: AnimalComponent },
+        { path: 'profissao', component: ProfissaoComponent },
+        { path: 'dinamico/:id/:name', component: DinamicoComponent },
+      ],
+    },
+  ]),
+],
   exports: [RouterModule],
 })
 export class RouterModules {}
