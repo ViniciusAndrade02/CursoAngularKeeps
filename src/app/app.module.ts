@@ -16,15 +16,8 @@ import { TestComponent } from './OtherProject/test/test.component';
 import { BasicHighLightDirective } from './OtherProject/basic-highlight/basic-hightlight.directive';
 import { BetterHighLightDirective } from './OtherProject/better-hignLight/better-highLight.directive';
 import { DirectiveConstructor } from './OtherProject/bi-diretris-estrutural/diretris-estrutural';
-import { RouterComponent } from './router/router.component';
-import { UsuarioComponent } from './router/usuario/usuario.component';
-import { ProfissaoComponent } from './router/profissao/profissao.component';
-import { AnimalComponent } from './router/animal/animal.component';
-import { DinamicoComponent } from './router/dinamico/dinamico.component';
-import { PageNotFoundComponent } from './router/page-not-found/page-not-found.component';
 import { InicioCursoComponent } from './inicio-curso/inicio-curso.component';
 import { AppRoutingModule } from './app-rounting.module';
-import { CadastroComponent } from './router/cadastro/cadastro.component';
 import { FormsComponent } from './formulario/forms/forms.component';
 import { Formulario2Component } from './formulario2/formulario2.component';
 import { ObservablesComponent } from './observables/observables.component';
@@ -35,6 +28,7 @@ import { Auth2Component } from './auth2/auth2.component';
 import { AlertComponents } from './shared/alert/alert.component';
 import { LearningModule } from './learningModules/learning.module';
 import { ProjectAngularModule } from './ProjectAngular/projectangular.module';
+import { RouterModules } from './router/router.module';
 @NgModule({
   declarations: [
     EmptyComponent,
@@ -47,8 +41,15 @@ import { ProjectAngularModule } from './ProjectAngular/projectangular.module';
     TestComponent,
     BasicHighLightDirective, //é um directive,
     BetterHighLightDirective, //é uma directive
-    DirectiveConstructor, RouterComponent, UsuarioComponent, ProfissaoComponent, AnimalComponent, DinamicoComponent, PageNotFoundComponent,ShortenPipe,
-    InicioCursoComponent,CadastroComponent,FormsComponent,Formulario2Component,ObservablesComponent,HttpBackEndComponent,Auth2Component,AlertComponents
+    DirectiveConstructor,
+    ShortenPipe,
+    InicioCursoComponent,
+    FormsComponent,
+    Formulario2Component,
+    ObservablesComponent,
+    HttpBackEndComponent,
+    Auth2Component,
+    AlertComponents
   ],
   imports: [
     BrowserModule,
@@ -59,6 +60,7 @@ import { ProjectAngularModule } from './ProjectAngular/projectangular.module';
     //Add new Module created for me
     LearningModule,
     ProjectAngularModule,
+    RouterModules
   ],
   providers: [],
   bootstrap: [AppComponent]
