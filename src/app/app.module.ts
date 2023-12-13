@@ -40,6 +40,7 @@ import { HttpBackEndComponent } from './http-back-end/http-back-end.component';
 import { ACabecalhoComponent } from './a-cabecalho/a-cabecalho.component';
 import { Auth2Component } from './auth2/auth2.component';
 import { AlertComponents } from './shared/alert/alert.component';
+import { LearningModule } from './learningModules/learning.module';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { AlertComponents } from './shared/alert/alert.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule, 
+    LearningModule
   ],
   providers: [],
   bootstrap: [AppComponent]

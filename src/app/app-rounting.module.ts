@@ -17,7 +17,8 @@ import { FormsComponent } from "./formulario/forms/forms.component";
 
 
 const appRoutes: Routes = [
-  { path: 'menu', component: EmptyComponent }, //inicial.
+  { path: '', redirectTo:'/menu', pathMatch:'full' }, //inicial.
+  { path:'menu', component: EmptyComponent },
   { path: 'fistCourse', component: InicioCursoComponent},
   { path: 'router', component: RouterComponent,children: [
     { path: 'usuario', component: UsuarioComponent },
