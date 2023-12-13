@@ -1,9 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { Routes,RouterModule } from '@angular/router';
-import {HttpClient, HttpClientModule} from '@angular/common/http'
+
+import { HttpClientModule} from '@angular/common/http'
 
 
 import { EmptyComponent } from './empty/empty.component';
@@ -25,10 +24,12 @@ import { ShortenPipe } from './shorten.pipes';
 import { HttpBackEndComponent } from './http-back-end/http-back-end.component';
 import { ACabecalhoComponent } from './a-cabecalho/a-cabecalho.component';
 import { Auth2Component } from './auth2/auth2.component';
+
 import { AlertComponents } from './shared/alert/alert.component';
 import { LearningModule } from './learningModules/learning.module';
 import { ProjectAngularModule } from './ProjectAngular/projectangular.module';
 import { RouterModules } from './router/router.module';
+import { ShareImports } from './shared/shared.module';
 @NgModule({
   declarations: [
     EmptyComponent,
@@ -60,7 +61,7 @@ import { RouterModules } from './router/router.module';
     //Add new Module created for me
     LearningModule,
     ProjectAngularModule,
-    RouterModules
+    RouterModules,
   ],
   providers: [],
   bootstrap: [AppComponent]

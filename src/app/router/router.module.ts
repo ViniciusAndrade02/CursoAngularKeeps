@@ -9,6 +9,7 @@ import { ProfissaoComponent } from './profissao/profissao.component';
 import { AnimalComponent } from './animal/animal.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { ShareImports } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     CadastroComponent,
   ],
   imports: [
-    CommonModule,
-    FormsModule,
+    ShareImports,
     RouterModule.forChild([
       {
         path: 'router',

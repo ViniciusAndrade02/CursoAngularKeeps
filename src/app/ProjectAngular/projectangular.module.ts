@@ -10,6 +10,7 @@ import { RecipeListComponent } from "./Recipes/Recipe-list/recipe-list/recipe-li
 import { RecipesComponents } from "./Recipes/Recipe-list/recipes.components";
 import { ShoppingEditComponents } from "./Shopping-list/shopping-edit/shopping-edit.components";
 import { ShoppingListComponents } from "./Shopping-list/shopping-list.component";
+import { ShareImports } from "../shared/shared.module";
 
 @NgModule({
 
@@ -23,8 +24,7 @@ import { ShoppingListComponents } from "./Shopping-list/shopping-list.component"
     ShoppingEditComponents
   ],
   imports:[
-    CommonModule,
-    FormsModule
+    ShareImports
   ],
   exports:[
     HeaderComponent,
