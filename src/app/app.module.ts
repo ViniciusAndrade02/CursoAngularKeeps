@@ -27,7 +27,9 @@ import { LearningModule } from './learningModules/learning.module';
 import { ProjectAngularModule } from './ProjectAngular/projectangular.module';
 import { RouterModules } from './router/router.module';
 import { OtherProjectModules } from './OtherProject/otherproject.module';
-import { appReducer } from './store/app.state';
+import { appReducer } from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { Effects } from './store/app.effect';
 @NgModule({
   declarations: [
     EmptyComponent,
@@ -51,6 +53,7 @@ import { appReducer } from './store/app.state';
     HttpClientModule,
     ReactiveFormsModule, 
     StoreModule.forRoot({app: appReducer}),
+    EffectsModule.forRoot([Effects]),
     //Add new Module created for me
     LearningModule,
     ProjectAngularModule,

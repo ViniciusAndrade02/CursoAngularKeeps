@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterService } from './router/router.service';
-import { desincrementarNumber, incrementNumber } from './store/app.action';
+import { desincrementarNumber, incrementNumber, loadTodos, setTodos } from './store/app.action';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { iAppState } from './store/app.state';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
@@ -14,16 +14,22 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
 
   counter$ = this.store.select('app').pipe( map(e => e.conter) )
-  todos: Itodo[] = []
+
+  //todos$!:Observable<Idolos[]> 
+  todos = []
 
   constructor(
     private router: Router,
     private store:Store<{ app: iAppState}>,
-    private http: HttpClient) {}
+    private http: HttpClient) {
+
+      //this.todos$ = store.select('app')
+    }
 
 
   incrementaNumero(){
     this.store.dispatch(incrementNumber())
+    console.log(this.todos)
   }
 
   reduzNumero(){
@@ -33,10 +39,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     //this.router.navigate(['menu']);
-    this.http.get<Itodo[]>('https://jsonplaceholder.typicode.com/todos')
-    .subscribe({
-      next: (res) => this.todos = res
-    })
+    this.store.dispatch(loadTodos())
   }
 
 

@@ -1,29 +1,12 @@
-import { createReducer, on } from "@ngrx/store"
-import { desincrementarNumber, incrementNumber } from "./app.action"
+import { Itodo } from '../app.component';
 
-export interface iAppState{
-  conter: number
+export interface iAppState {
+  conter: number;
+  todos:Itodo[];
 }
 
-export const appInitalState:iAppState ={
-  conter: 10 
-}
+export const appInitalState: iAppState = {
+  conter: 10,
+  todos: [],
+};
 
-export const appReducer = createReducer(
-  appInitalState,
-  on(incrementNumber, (state) => {
-    state = {
-      ...state,
-      conter: state.conter + 1
-    }
-    return state
-  }),
-
-  on(desincrementarNumber, (state) => {
-    state = {
-      ...state,
-      conter: state.conter - 1
-    }
-    return state
-  })
-)

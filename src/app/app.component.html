@@ -1,7 +1,11 @@
-  <h1>PORRAAAAA {{counter$ | async}}</h1>
+  <h1>Numero {{counter$ | async}}</h1>
 
   <button (click)="incrementaNumero()">aumentar</button>
   <button (click)="reduzNumero()">diminuir</button>
+
+  <ul *ngFor="let item of todos">
+    <li>{{item}}</li>
+  </ul>
 
 <!-- CABEÇALHO NA PÁGINA,TODOS OS MEUS MINI PROJETOS -->
 <app-a-cabecalho></app-a-cabecalho>
