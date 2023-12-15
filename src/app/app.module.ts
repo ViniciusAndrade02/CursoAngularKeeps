@@ -1,3 +1,5 @@
+import { StoreModule } from '@ngrx/store';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +27,7 @@ import { LearningModule } from './learningModules/learning.module';
 import { ProjectAngularModule } from './ProjectAngular/projectangular.module';
 import { RouterModules } from './router/router.module';
 import { OtherProjectModules } from './OtherProject/otherproject.module';
+import { appReducer } from './store/app.state';
 @NgModule({
   declarations: [
     EmptyComponent,
@@ -47,6 +50,7 @@ import { OtherProjectModules } from './OtherProject/otherproject.module';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule, 
+    StoreModule.forRoot({app: appReducer}),
     //Add new Module created for me
     LearningModule,
     ProjectAngularModule,
