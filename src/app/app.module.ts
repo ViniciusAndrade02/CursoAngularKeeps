@@ -27,9 +27,11 @@ import { LearningModule } from './learningModules/learning.module';
 import { ProjectAngularModule } from './ProjectAngular/projectangular.module';
 import { RouterModules } from './router/router.module';
 import { OtherProjectModules } from './OtherProject/otherproject.module';
-import { appReducer } from './store/app.reducer';
+import { appReducer, itemsReducer } from './store/app.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { Effects } from './store/app.effect';
+import { ROOT_REDUCER } from './store/app.state';
+import { StoreDevtools,StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
     EmptyComponent,
@@ -52,8 +54,9 @@ import { Effects } from './store/app.effect';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule, 
-    StoreModule.forRoot({app: appReducer}),
+    StoreModule.forRoot({app: appReducer,...ROOT_REDUCER}),
     EffectsModule.forRoot([Effects]),
+    StoreDevtoolsModule.instrument({name:'TEST'}),
     //Add new Module created for me
     LearningModule,
     ProjectAngularModule,

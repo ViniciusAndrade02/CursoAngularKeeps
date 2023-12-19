@@ -5,7 +5,7 @@ import { loadTodos, sucessTodos,setTodos } from "./app.action";
 import { switchMap,tap,map, } from "rxjs/operators";
 
 import { Store } from '@ngrx/store';
-import { Itodo } from "../app.component";
+import { Itodo } from "./app.model";
 import { iAppState } from "./app.state";
 
 @Injectable({

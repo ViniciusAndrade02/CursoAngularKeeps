@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterService } from './router/router.service';
-import { desincrementarNumber, incrementNumber, loadTodos, setTodos } from './store/app.action';
+import { desincrementarNumber, incrementNumber, loadItems, loadTodos, loadedItems, setTodos } from './store/app.action';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { iAppState } from './store/app.state';
+import { ItemsState, iAppState } from './store/app.state';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { selectLoading } from './store/app.selector';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +15,8 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
 
   counter$ = this.store.select('app').pipe( map(e => e.conter) )
+  loading$: Observable<boolean> = new Observable()
+
 
   //todos$!:Observable<Idolos[]> 
   todos = []
@@ -21,6 +24,7 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private store:Store<{ app: iAppState}>,
+    private storeApp:Store<any>,
     private http: HttpClient) {
 
       //this.todos$ = store.select('app')
@@ -29,7 +33,6 @@ export class AppComponent implements OnInit {
 
   incrementaNumero(){
     this.store.dispatch(incrementNumber())
-    console.log(this.todos)
   }
 
   reduzNumero(){
@@ -38,8 +41,11 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //this.router.navigate(['menu']);
+
+    this.loading$ = this.storeApp.select(selectLoading)
+
     this.store.dispatch(loadTodos())
+    this.store.dispatch(loadItems())
   }
 
 
@@ -72,9 +78,3 @@ export class AppComponent implements OnInit {
 }
 
 
-export interface Itodo{
-  userId: number,
-  id: number,
-  title: string,
-  completed: boolean
-}
