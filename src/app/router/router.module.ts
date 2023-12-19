@@ -17,6 +17,7 @@ import { ShareImports } from '../shared/shared.module';
     AnimalComponent,
     DinamicoComponent,
     CadastroComponent,
+
   ],
   imports: [
     ShareImports,
