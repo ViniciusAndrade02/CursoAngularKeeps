@@ -43,11 +43,13 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
     this.loading$ = this.storeApp.select(selectLoading)
-
     this.store.dispatch(loadTodos())
-    this.store.dispatch(loadItems())
+    
   }
 
+  changeBollean(){
+    this.store.dispatch(loadItems())
+  }
 
   //Projeto Seção 5
   serverElement = [

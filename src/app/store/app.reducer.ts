@@ -17,7 +17,7 @@ export const itemsReducer = createReducer(
   initalState,
   on(loadItems, (state) => {
     state = {
-      ...state, loading: true,
+      ...state, loading: !state.loading,
     }
     return state;
   })

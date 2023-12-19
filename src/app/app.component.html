@@ -7,7 +7,8 @@
     <li>{{item}}</li>
   </ul>
 
-  <h1>Loading.... {{loading$ | async | json}}</h1>
+  <h1>Loading.... {{loading$ | async }}</h1>
+  <button (click)="changeBollean()">TROCAR</button>
 
 <!-- CABEÇALHO NA PÁGINA,TODOS OS MEUS MINI PROJETOS -->
 <app-a-cabecalho></app-a-cabecalho>
