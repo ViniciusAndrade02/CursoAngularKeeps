@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterService } from './router/router.service';
-import { desincrementarNumber, incrementNumber, loadItems, loadTodos, loadedItems, setTodos } from './store/app.action';
+import { desincrementarNumber, incrementNumber, loadItems, loadTodos } from './store/app.action';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ItemsState, iAppState } from './store/app.state';
+import { iAppState } from './store/app.state';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { selectLoading } from './store/app.selector';

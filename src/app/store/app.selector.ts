@@ -1,5 +1,14 @@
 import { createSelector } from "@ngrx/store";
-import { AppAllState, ItemsState } from "./app.state";
+import { ItemModel } from "./app.model";
+
+export interface ItemsState{
+  loading: boolean;
+  items: ReadonlyArray<ItemModel>;
+}
+
+export interface AppAllState{
+  items: ItemsState
+}
 
 export const selectItemsFeature = (state:AppAllState) => state.items //faz parte do ItemsState
 

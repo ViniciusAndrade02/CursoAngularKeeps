@@ -1,11 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { ItemsState, iAppState } from './app.state';
+import { iAppState } from './app.state';
 import {
   desincrementarNumber,
   incrementNumber,
   loadItems,
   setTodos,
 } from './app.action';
+import { ItemsState } from './app.selector';
 
 export const initalState: ItemsState = {
   loading: false,
