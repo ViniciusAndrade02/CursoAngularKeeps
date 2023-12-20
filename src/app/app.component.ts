@@ -1,12 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { RouterService } from './router/router.service';
-import { desincrementarNumber, incrementNumber, loadItems, loadTodos } from './store/app.action';
-import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { iAppState } from './store/app.state';
-import { Observable, map } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { selectLoading } from './store/app.selector';
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,42 +7,16 @@ import { selectLoading } from './store/app.selector';
 })
 export class AppComponent implements OnInit {
 
-  counter$ = this.store.select('app').pipe( map(e => e.conter) )
-  loading$: Observable<boolean> = new Observable()
-
-
-  //todos$!:Observable<Idolos[]> 
-  todos = []
-
   constructor(
-    private router: Router,
-    private store:Store<{ app: iAppState}>,
-    private storeApp:Store<any>,
-    private http: HttpClient) {
+    ) {
 
       //this.todos$ = store.select('app')
     }
 
-
-  incrementaNumero(){
-    this.store.dispatch(incrementNumber())
-  }
-
-  reduzNumero(){
-    this.store.dispatch(desincrementarNumber())
-  }
-
-
   ngOnInit(): void {
-
-    this.loading$ = this.storeApp.select(selectLoading)
-    this.store.dispatch(loadTodos())
     
   }
 
-  changeBollean(){
-    this.store.dispatch(loadItems())
-  }
 
   //Projeto Seção 5
   serverElement = [

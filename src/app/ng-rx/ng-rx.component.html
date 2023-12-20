@@ -1,1 +1,22 @@
-<p>ng-rx works!</p>
+<div class="flex">
+  <div class="flex flex-col justify-center  w-1/3 h-64 bg-red-300">
+    <div class="flex flex-col items-center ">
+      <h1>Numero:</h1>
+      <p>{{counter$ | async}}</p>
+    </div>
+  
+    <div class="flex justify-center">
+      <button [disabled]="!(loading$ | async)" (click)="incrementaNumero()">aumentar</button>
+      <button [disabled]="!(loading$ | async)" class="ml-3" (click)="reduzNumero()">diminuir</button>
+    </div>
+  </div>
+
+  <div class="flex flex-col justify-center  w-1/3 h-64 bg-red-300">
+    <div class="flex flex-col items-center ">
+      <p *ngIf="!(loading$ | async)" >Botão está desabilitado</p>
+      <p *ngIf="loading$ | async">Botão habilitado</p>    
+      <button (click)="changeBollean()">TROCAR</button>
+    </div>
+  </div>
+    
+</div>
