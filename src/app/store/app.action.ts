@@ -3,6 +3,7 @@ import { Itodo } from './app.model';
 import { ItemModel } from './app.model';
 
 export const loadItems = createAction('[Item List] Load items');
+export const loadArray = createAction('[Item Array] load Array') 
 
 export const loadedItems = createAction(
   '[Item List] Loaded sucess',

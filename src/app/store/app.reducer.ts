@@ -3,23 +3,36 @@ import { iAppState } from './app.state';
 import {
   desincrementarNumber,
   incrementNumber,
+  loadArray,
   loadItems,
   setTodos,
 } from './app.action';
 import { ItemsState } from './app.selector';
+import { ItemModel } from './app.model';
 
 export const initalState: ItemsState = {
   loading: false,
-  items: [],
+  items: [{
+    name:'Vinicius',
+    price:12,
+    image:'ss'
+  }],
 };
 
 export const itemsReducer = createReducer(
   initalState,
   on(loadItems, (state) => {
     state = {
-      ...state, loading: !state.loading,
-    }
+      ...state,
+      loading: !state.loading,
+    };
     return state;
+  }),
+  on(loadArray, (state) => {
+    const newArray: ItemModel[] = [
+      { name: 'cleiton', price: 120, image: 'naosei' },
+    ];
+    return { ...state, items: [...state.items, ...newArray] };
   })
 );
 

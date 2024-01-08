@@ -4,7 +4,7 @@ import { iAppState } from "./app.state";
 
 export interface ItemsState{
   loading: boolean;
-  items: ReadonlyArray<ItemModel>;
+  items: ItemModel[];
 }
 
 export interface AppAllState{
@@ -24,6 +24,7 @@ export const selectLoading = createSelector(
 )
 
 
+//Parte do API
 
 
 export interface AllApi{
