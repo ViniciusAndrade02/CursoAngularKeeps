@@ -1,7 +1,5 @@
 import { createSelector } from "@ngrx/store";
-import { ItemModel } from "./app.model";
-import { iAppState } from "./app.state";
-
+import { ItemModel, Itodo } from "./app.model";
 export interface ItemsState{
   loading: boolean;
   items: ItemModel[];
@@ -26,6 +24,10 @@ export const selectLoading = createSelector(
 
 //Parte do API
 
+export interface iAppState {
+  conter: number;
+  todos:Itodo[];
+}
 
 export interface AllApi{
   arrayApi: iAppState

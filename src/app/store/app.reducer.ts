@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { iAppState } from './app.state';
+import { iAppState } from './app.selector';
 import {
   desincrementarNumber,
   incrementNumber,

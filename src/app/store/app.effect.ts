@@ -6,7 +6,7 @@ import { switchMap,tap,map, } from "rxjs/operators";
 
 import { Store } from '@ngrx/store';
 import { Itodo } from "./app.model";
-import { iAppState } from "./app.state";
+import { iAppState } from "./app.selector";
 
 @Injectable({
   providedIn:'root'

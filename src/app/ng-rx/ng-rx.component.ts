@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { iAppState } from '../store/app.state';
+import { iAppState } from '../store/app.selector';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { desincrementarNumber, incrementNumber, loadArray, loadItems, loadTodos } from '../store/app.action';
