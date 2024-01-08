@@ -1,5 +1,6 @@
 import { createSelector } from "@ngrx/store";
 import { ItemModel } from "./app.model";
+import { iAppState } from "./app.state";
 
 export interface ItemsState{
   loading: boolean;
@@ -20,4 +21,18 @@ export const selectListItems = createSelector(
 export const selectLoading = createSelector(
   selectItemsFeature,
   (state: ItemsState) => state.loading
+)
+
+
+
+
+export interface AllApi{
+  arrayApi: iAppState
+}
+
+export const selectArrayApi = (state:AllApi) => state.arrayApi
+
+export const selectArrayItems = createSelector(
+  selectArrayApi,
+  (state:iAppState) => state.todos
 )

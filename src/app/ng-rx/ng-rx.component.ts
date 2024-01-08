@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { iAppState } from '../store/app.state';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { desincrementarNumber, incrementNumber, loadItems } from '../store/app.action';
+import { desincrementarNumber, incrementNumber, loadItems, loadTodos } from '../store/app.action';
 import { Observable, map } from 'rxjs';
-import { selectLoading } from '../store/app.selector';
+import { selectArrayApi, selectLoading } from '../store/app.selector';
+import { Itodo } from '../store/app.model';
 
 @Component({
   selector: 'app-ng-rx',
@@ -14,8 +15,6 @@ import { selectLoading } from '../store/app.selector';
 export class NgRxComponent implements OnInit{
 
   loading$: Observable<boolean> = new Observable()
-
-
   counter$ = this.storeNumber.select('app').pipe( map(e => e.conter) )
 
   constructor(
@@ -24,9 +23,13 @@ export class NgRxComponent implements OnInit{
     private store:Store<any>) {}
 
     ngOnInit(): void {
+
       this.loading$ = this.store.select(selectLoading)
+
+      this.storeNumber.dispatch(loadTodos())
     }
 
+  
   incrementaNumero(){
     this.storeNumber.dispatch(incrementNumber())
   }
