@@ -21,6 +21,7 @@ import { HttpBackEndComponent } from './http-back-end/http-back-end.component';
 import { ACabecalhoComponent } from './a-cabecalho/a-cabecalho.component';
 import { Auth2Component } from './auth2/auth2.component';
 import { NgRxComponent } from './ng-rx/ng-rx.component';
+import { RxJSComponent } from './rx-js/rx-js.component';
 
 import { AlertComponents } from './shared/alert/alert.component';
 import { LearningModule } from './learningModules/learning.module';
@@ -47,7 +48,8 @@ import { StoreDevtools,StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpBackEndComponent,
     Auth2Component,
     AlertComponents,
-    NgRxComponent
+    NgRxComponent,
+    RxJSComponent
   ],
   imports: [
     BrowserModule,

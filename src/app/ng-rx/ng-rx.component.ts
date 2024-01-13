@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { iAppState } from '../store/app.selector';
+import { iAppState, selectArrayItems } from '../store/app.selector';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { desincrementarNumber, incrementNumber, loadArray, loadItems, loadTodos } from '../store/app.action';
@@ -16,7 +16,9 @@ export class NgRxComponent implements OnInit{
 
   loading$: Observable<boolean> = new Observable()
   array$: Observable<ItemModel[]> = new Observable()
+  arrayApi$:Observable<any[]> = new Observable()
   counter$ = this.storeNumber.select('app').pipe( map(e => e.conter) )
+  numberSend:number = 457
 
   constructor(
     private router: Router,
@@ -28,7 +30,13 @@ export class NgRxComponent implements OnInit{
       this.loading$ = this.store.select(selectLoading)
       this.array$ = this.store.select(selectListItems) //array is here
 
+      this.arrayApi$= this.store.select(selectArrayItems)
       this.storeNumber.dispatch(loadTodos())
+
+      if (true) {
+        var y = 5;
+      }
+      console.log(y);
     }
 
     addArrayNew(){
@@ -47,4 +55,7 @@ export class NgRxComponent implements OnInit{
   changeBollean(){
     this.store.dispatch(loadItems())
   }
+
+
+  
 }
